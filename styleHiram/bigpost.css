@@ -1,0 +1,279 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+#general {
+  width: 85vw;
+  margin: 0 auto;
+}
+
+.actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #3d3d3d;
+  margin-top: 40px;
+}
+
+.actions path {
+  fill: #3d3d3d;
+}
+
+.actions .heart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.actions .heart .heartDiv {
+  padding: 5px;
+  border-radius: 50%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.actions .heart .heartDiv:hover {
+  background-color: #f2e0e0;
+}
+
+.actions .heart .heartDiv:hover path {
+  fill: #dc2626;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.actions .unicorn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.actions .unicorn .unicornDiv {
+  padding: 5px;
+  border-radius: 50%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.actions .unicorn .unicornDiv:hover {
+  background-color: #ddebe7;
+}
+
+.actions .unicorn .unicornDiv:hover path {
+  fill: #059669;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.actions .bookmark {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.actions .bookmark .bookmarkDiv {
+  padding: 5px;
+  border-radius: 50%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.actions .bookmark .bookmarkDiv:hover {
+  background-color: #e4e3f3;
+}
+
+.actions .bookmark .bookmarkDiv:hover path {
+  fill: #4f46e5;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.actions .more {
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.actions .more path {
+  fill: #919191;
+}
+
+.actions .more:hover {
+  background-color: #f2f2f2;
+}
+
+.actions .more:hover path {
+  fill: #3d3d3d;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+@media (max-width: 1000px) {
+  .col-8 {
+    width: 77vw;
+  }
+}
+
+.hero-img {
+  border-radius: 10px 10px 0 0;
+}
+
+.userPost {
+  background-color: white;
+  padding: 50px;
+  padding-top: 10px;
+  padding-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.userPost img {
+  border-radius: 50%;
+}
+
+.userPost .nameDate {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+.userPost .nameDate h6 {
+  font-weight: bold;
+}
+
+.userPost .nameDate p {
+  font-size: .8rem;
+}
+
+.post {
+  background-color: white;
+  padding: 50px;
+  padding-top: 0px;
+}
+
+.post h1 {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.post .tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.post .tags .tag {
+  padding: 5px;
+  border-radius: 7px;
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.post .tags .tag:hover {
+  background-color: #ebecfc;
+  border: 1px solid #bbbff4;
+}
+
+.post p {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.writer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.writer img {
+  border-radius: 50%;
+}
+
+.writer h5 {
+  font-weight: 700;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #57575e;
+}
+
+.info {
+  font-size: .8rem;
+  font-weight: 700;
+  color: #57575e;
+}
+
+.card-title {
+  font-weight: 700;
+}
+
+.card-title span {
+  color: #3b49df;
+  cursor: pointer;
+}
+
+.card {
+  margin-bottom: 20px;
+  background-color: #fafafa;
+}
+
+@media (max-width: 1000px) {
+  .card {
+    display: none;
+  }
+}
+/*# sourceMappingURL=bigpost.css.map */
