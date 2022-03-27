@@ -1,0 +1,15 @@
+#textFormating
+{
+    width: auto;
+    height: auto;
+    overflow: auto;
+    overflow-y: hidden;
+    margin: 0 auto;
+    white-space: nowrap
+}
+
+h1
+{
+    width: auto;
+}
+
