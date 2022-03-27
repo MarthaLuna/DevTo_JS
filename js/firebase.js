@@ -10,10 +10,11 @@ const createPost = ( image, title, avatar, tags, contentText, funcion) =>
     let datetime = tiempoActual.getTime();
     let counterReactions = 0;
     let counterComents = 0;
+    let nameP = "Susana Perez";
     
     
 
-    const post = {postID, datetime, counterReactions, counterComents, image, title, avatar, tags, contentText};
+    const post = {postID, datetime, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP};
 
     fetch(url,{
         method:'POST',
@@ -28,9 +29,9 @@ const createPost = ( image, title, avatar, tags, contentText, funcion) =>
 }
 
 let tags= ["#javascritp", "#html", "#web"];
-//createPost( "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", "programacion web", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", tags, "Aqui va toda la descripción",  (body) => {
+createPost( "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", "programacion web", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", tags, "Aqui va toda la descripción",  (body) => {
     //console.log(body)
-//})
+})
 
 
 
@@ -80,10 +81,11 @@ const updatePost = (fireBaseID, image, title, avatar, tags, contentText, funcion
     let datetime = tiempoActual.getTime();
     let counterReactions = 4;
     let counterComents = 4;
+    let nameP = "Susana Perez"
     
     
 
-    const post = {postID, datetime, counterReactions, counterComents, image, title, avatar, tags, contentText};
+    const post = {postID, datetime, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP};
 
 
 	fetch(url, {
@@ -99,8 +101,8 @@ const updatePost = (fireBaseID, image, title, avatar, tags, contentText, funcion
 	 .catch((error) => console.log(error));
 
 }
-updatePost("-Mz7ezgQhj3bcXYrt6Xs", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", "programacion web", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", tags, "Aqui va toda la descripción",  (body) => {
+//updatePost("-Mz7ezgQhj3bcXYrt6Xs", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", "programacion web", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", tags, "Aqui va toda la descripción",  (body) => {
     //console.log(body)
-})
+//})
 
 
