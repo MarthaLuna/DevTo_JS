@@ -16,7 +16,7 @@ const posting = (e) =>
         createPost(postImg.value,postTitle.value,postImg.value,tags,postTextContent.value, (body)=>{
             console.log(body);
          });
-        cleanTags();
+        cleanForm();
     }
     else
     {
@@ -92,6 +92,7 @@ const addTag=(e)=>
 
 const recoverTags = () =>
 {
+    //tags=Array.from(document.querySelectorAll('#postTags'));
     const postTags = Array.from(document.querySelectorAll('#postTags'));
     if(postTags.length>0)
     {
@@ -152,9 +153,9 @@ const showAid = (e) =>
     }    
 }
 
-const cleanTags = (e) =>
+const cleanForm = (e) =>
 {
-    e.preventDefault();
+    //e.preventDefault();
     postTitle.value='';
     postTextContent.value='';
     postImg.value='';
