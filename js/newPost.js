@@ -8,15 +8,16 @@ const postTags=document.querySelector('#postTags');
 const postear = (e) =>
 {
     e.preventDefault();
-    /*let tags= ["#javascritp", "#html", "#web"];
-    createPost( "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", "programacion web", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", tags, "Aqui va toda la descripción",  (body) => {
+    let tags= ["#javascritp", "#html", "#web"];
+    /*createPost( "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", "programacion web", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", tags, "Aqui va toda la descripción",  (body) => {
     console.log(body)
     })*/
 
-    console.log(postImg.value, postTitle.value, postImg.value,postTags.value,postTextContent.value);
-    // createPost(postImg.value,postTitle.value,postImg.value,postTags.value,postTextContent.value, (body)=>{
-    //     console.log(body);
-    // });
+    console.log("Image: ", postImg.value,"title: ", postTitle.value, "Image: ",postImg.value, "Tags: ", postTags.value, "TextContent: ",postTextContent.value);
+    const img = postImg.value
+     createPost(img,postTitle.value,postImg.value,tags,postTextContent.value, (body)=>{
+        console.log(body);
+     });
 }
 
 const createPost = ( image, title, avatar, tags, contentText, funcion) =>
@@ -29,7 +30,7 @@ const createPost = ( image, title, avatar, tags, contentText, funcion) =>
     let datetime = tiempoActual.getTime();
     let counterReactions = 0;
     let counterComents = 0;
-    let nameP = "Susana Perez";
+    let nameP = "Pedro Lopez";
     
     
 
