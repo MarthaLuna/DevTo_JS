@@ -15,7 +15,9 @@
     <main>
         <div class="m-2 d-flex align-items-center justify-content-start justify-content-sm-between">
             <div class="d-flex align-items-center d-none d-sm-inline">
-                <img width="50px" class="me-2 d-none d-md-inline" src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" alt="DEV Community">
+                <a href="./index.html" style="text-decoration: none;">
+                    <img width="50px" class="me-2 d-none d-md-inline" src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" alt="DEV Community">
+                </a>
                 Create Post
             </div>
             <div class="d-flex align-items-center">
@@ -32,15 +34,19 @@
         </div>
 
         <div class="">
-            <form onsubmit="postear(event)" class="w-100 d-flex flex-column justify-content-center">
+            <form  class="w-100 d-flex flex-column justify-content-center">
                 <div class="d-flex p-3 align-items-center justify-content-center">
                     <div class="bg-white card me-md-3">
                         <div class="p-4 justify-content-between">
                             <input id="postImg" type="url" class="mb-3" placeholder="Add a cover image">
                             <h1 class="mt-3 mb-3">
-                                <input id="postTitle" class="w-100" type="text" placeholder="New post title here..."  style="border:none">
+                                <input id="postTitle" onclick="showAid(event)" class="w-100" type="text" placeholder="New post title here..."  style="border:none">
                             </h1>
-                            <input id="postTags" type="text" class="mt-3" type="text" placeholder="Add up to 4 tags..."  style="border:none">
+                            <div class="d-flex mt-3">
+                                <div id="tagsContainer" class="d-flex">
+                                </div>
+                                <input id="tagCreator" onclick="showAid(event)" onchange="addTag(event)" type="text" class="form-control p-1" type="text" placeholder="Add up to 4 tags..."  style="border:none">
+                            </div>
                         </div>
                         <div class="">
                             <div class="p-1" style="background:rgb(245,245,245);">
@@ -119,14 +125,14 @@
                             </div>
                             <div class="p-4">
                                 <div class="form-floating">
-                                    <textarea id="postTextContent" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 110px; border:none"></textarea>
+                                    <textarea id="postTextContent" onclick="showAid(event)" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 110px; border:none"></textarea>
                                     <label for="floatingTextarea2">Write your post content here...</label>
                                 </div>
                             </div>
                         </div>
                     </div>                      
 
-                    <div class="d-none d-md-inline w-25">
+                    <div id="TitleAid" class="d-none d-md-inline w-25">
                         <h5>
                             Writing a Great Post Title
                         </h5>
@@ -140,20 +146,65 @@
                         </ul>
                     </div>
 
+                    <div id="TagsAid" class="d-none w-25">
+                        <h5>
+                            Tagging Guidelines
+                        </h5>
+                        <ul>
+                            <li>
+                                Tags help people find your post.
+                            </li>
+                            <li>
+                                Think of tags as the topics or categories that best describe your post.
+                            </li>
+                            <li>
+                                Add up to four comma-separated tags per post. Combine tags to reach the appropriate subcommunities.
+                            </li>
+                            <li>
+                                Use existing tags whenever possible.
+                            </li>
+                            <li>
+                                Some tags, such as “help” or “healthydebate”, have special posting guidelines.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="ContentAid" class="d-none w-25">
+                        <h5>
+                            Editor Basics
+                        </h5>
+                        <ul>
+                            <li>
+                                Use <a href="" style="text-decoration: none;">Markdown</a> to write and format posts.
+                                <ul>
+                                    <li>
+                                        Commonly used syntax
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Embed rich content such as Tweets, YouTube videos, etc. Use the complete URL: <span class="rounded" style="background-color: lightgray;">{% embed https://... %}.</span> <a href="" style="text-decoration: none;">See a list of supported embeds.</a>
+                            </li>
+                            <li>
+                                In addition to images for the post's content, you can also drag and drop a cover image.
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
 
                 <div class="m-3 d-flex p-3 align-items-center justify-content-start">
-                    <button type="submit" class="btn btn-primary me-1">
+                    <button onclick="posting()" type="button" class="btn btn-primary me-2">
                         Publish
                     </button>
-                    <button class="btn btn-outline-primary me-1" style="border:none; color:black">
+                    <button type="button" class="btn btn-outline-primary me-2" style="border:none; color:black">
                         <span>Save</span>
                         <span class="d-none d-sm-inline">draft</span>
                     </button>
-                    <button class="btn btn-outline-primary me-1" style="border:none; color:black">
+                    <button type="button" class="btn btn-outline-primary me-2" style="border:none; color:black">
                         <i class="bi bi-nut"></i>
                     </button>
-                    <button class="btn btn-outline-primary me-1" style="border:none; color:black">
+                    <button type="reset" class="btn btn-outline-primary me-2" style="border:none; color:black">
                         <span>Revert</span>
                         <span class="d-none d-sm-inline">new changes</span>
                     </button>
@@ -161,6 +212,8 @@
             </form>
         </div>
     </main>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="./js/newPost.js"></script>
 </body>
 </html>
