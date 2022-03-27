@@ -7,8 +7,11 @@ const getPosts2=async()=>
     const respuesta=await fetch(url);
     const body=await respuesta.json();
     const postsValues = Object.values(body);
-    console.log(postsValues);
-    postsValues.forEach((post)=>{
+  
+    const postKeys = Object.keys(body);
+    for(let key of postKeys)
+    {
+      let post=body[key];
 
         let postHTML = `
        <div class="card">
@@ -32,7 +35,8 @@ const getPosts2=async()=>
             <div><span><i class="bi bi-suit-heart"></i> ${post.counterReactions} Reactios</span>
               <span><i class="bi bi-chat-right"></i> ${post.counterComents} Comments</span>
             </div>
-            <div><a href="#" class="btn btn-secondary btn-sm">Update</a>
+            <div>
+              <a onclick="editPost('${key}')" class="btn btn-secondary btn-sm">Update</a>
               <a href="#" class="btn btn-secondary btn-sm">Delete</a>
             </div>
           </div>
@@ -40,7 +44,13 @@ const getPosts2=async()=>
       </div>`
 
       containerPosts.insertAdjacentHTML('beforeend',postHTML);
-    })
+
+    }
+
+    document.editPost = (firebaseID) =>
+    {
+        window.location.assign(`/editPost.html?id=${firebaseID}`);
+    }
 }
 
 getPosts2();
