@@ -8,7 +8,20 @@ const tagsContainer=document.getElementById('tagsContainer');
 let tags=[];
 
 const posting = (e) =>
-{
+{   
+    if(postTitle.value&&postTextContent.value)
+    {
+        recoverTags();
+        //console.log('Se puede publicar');
+        createPost(postImg.value,postTitle.value,postImg.value,tags,postTextContent.value, (body)=>{
+            console.log(body);
+         });
+        cleanTags();
+    }
+    else
+    {
+        console.log('NO se puede');
+    }
     //e.preventDefault();
     //let tags= ["#javascritp", "#html", "#web"];
     /*createPost( "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", "programacion web", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", tags, "Aqui va toda la descripción",  (body) => {
@@ -20,16 +33,17 @@ const posting = (e) =>
      createPost(img,postTitle.value,postImg.value,tags,postTextContent.value, (body)=>{
         console.log(body);
      });
-     tags=[];*/
-     recoverTags();
-     console.log('Estoy haciendo submit');
+     */
+     
+     /*recoverTags();
+     tags=[];
+     console.log('Estoy haciendo submit');*/
 }
 
 const createPost = ( image, title, avatar, tags, contentText, funcion) =>
 {
     const url=`${urlDB}/posts.json`;
     const tiempoActual = new Date();
-
 
     let postID = `${tiempoActual.getTime()}${tiempoActual.getMilliseconds()}`;
     let datetime = tiempoActual.getTime();
@@ -79,8 +93,13 @@ const addTag=(e)=>
 const recoverTags = () =>
 {
     const postTags = Array.from(document.querySelectorAll('#postTags'));
-
-    console.log(tagsContainer.children.length);
+    if(postTags.length>0)
+    {
+        postTags.forEach((tag)=>{
+            tags.push(tag.textContent);
+        })
+        //console.log(tags)
+    }
 }
 
 const removeTag = () =>
@@ -109,13 +128,9 @@ const showAid = (e) =>
     const TagsAid    =document.getElementById('TagsAid');
     const ContentAid =document.getElementById('ContentAid');
 
-    console.log(TitleAid);
-
     const claseTitle=Array.from(TitleAid.classList).find((clase)=>clase=='d-md-inline');
     const claseTags=Array.from(TagsAid.classList).find((clase)=>clase=='d-md-inline');
     const claseContent=Array.from(ContentAid.classList).find((clase)=>clase=='d-md-inline');
-
-    console.log(claseTitle);
 
     if(e.target.id=='postTitle')
     {
@@ -135,4 +150,17 @@ const showAid = (e) =>
         if(claseTags){TagsAid.classList.remove('d-md-inline');}
         if(claseTitle){TitleAid.classList.remove('d-md-inline');}
     }    
+}
+
+const cleanTags = (e) =>
+{
+    e.preventDefault();
+    postTitle.value='';
+    postTextContent.value='';
+    postImg.value='';
+    if(tagsContainer.children.length>0)
+    {
+        tagsContainer.innerHTML='';
+        tags=[];
+    }
 }
