@@ -5,8 +5,8 @@ const find=document.querySelector('#search');
 const search=async()=>
 {
     console.log("entre")
-    document.getElementById("center").innerHTML = "";
-    document.getElementById("center").innerHTML = "<div id=\"posts\"></div>";
+    document.getElementById("posts").innerHTML = "";
+ 
     const containerPosts=document.querySelector('#posts');
     const url=`${urlDB}/posts.json`;
     const respuesta=await fetch(url);
@@ -14,7 +14,10 @@ const search=async()=>
     const postsValues = Object.values(body);
     console.log(postsValues);
     const title = find.value;
-    const posts = postsValues.filter((post)=>post.title==title)
+    console.log(title)
+
+    const posts = postsValues.filter((post)=>post.title.includes(title))
+    console.log(posts)
     posts.forEach((post)=>{
 
         let postHTML = `

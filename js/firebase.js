@@ -56,17 +56,7 @@ const getPosts2=async()=>
 //getPosts2()
 
 
-const deletePost = (fireBaseID) => {
 
-	const url = `${urlDB}/posts/${fireBaseID}.json`;
-	fetch(url, {
-		method: 'DELETE'
-	})
-	 .then(respuesta => respuesta.json())
-	 .then((body) => console.log(body))
-	 .catch((error) => console.log(error));
-
-}
 
 //deletePost("-Mz7Lqsv3kZ6vFZ-urfC");
 
