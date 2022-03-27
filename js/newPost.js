@@ -16,7 +16,7 @@ const posting = (e) =>
         createPost(postImg.value,postTitle.value,postImg.value,tags,postTextContent.value, (body)=>{
             console.log(body);
          });
-        cleanTags();
+        cleanForm();
     }
     else
     {
@@ -152,7 +152,7 @@ const showAid = (e) =>
     }    
 }
 
-const cleanTags = (e) =>
+const cleanForm = (e) =>
 {
     e.preventDefault();
     postTitle.value='';
