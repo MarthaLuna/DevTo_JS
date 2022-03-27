@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f8f8f8;
+}
+#general {
+    width: 85vw;
+    margin: 0 auto;
+}
+
+// Columna izquierda
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #3d3d3d;
+    margin-top: 40px;
+    path {
+        fill: #3d3d3d;
+    }
+    .heart {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        .heartDiv {
+            padding: 5px;
+            border-radius: 50%;
+            transition: all .5s ease;
+        }
+        .heartDiv:hover {
+            background-color: #f2e0e0;
+            path {
+                fill: #dc2626;
+                transition: all .5s ease;
+            }
+        }
+    }
+    .unicorn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        .unicornDiv {
+            padding: 5px;
+            border-radius: 50%;
+            transition: all .5s ease;
+        }
+        .unicornDiv:hover {
+            background-color: #ddebe7;
+            path {
+                fill: #059669;
+                transition: all .5s ease;
+            }
+        }       
+    }
+    .bookmark {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        .bookmarkDiv {
+            padding: 5px;
+            border-radius: 50%;
+            transition: all .5s ease;
+        }
+        .bookmarkDiv:hover {
+            background-color: #e4e3f3;
+            path {
+                fill: #4f46e5;
+                transition: all .5s ease;
+            }
+        }     
+    }
+    .more {
+        padding: 5px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all .5s ease;
+        path {
+            fill: #919191;
+        }
+    }
+    .more:hover {
+        background-color: #f2f2f2;
+        path {
+            fill: #3d3d3d;
+            transition: all .5s ease;
+        }
+    }
+}
+
+// Centro
+.col-8 {
+    @media (max-width: 1000px) {
+        width: 77vw;
+      }
+}
+.hero-img {
+    border-radius: 10px 10px 0 0;
+}
+.userPost {
+    background-color: white;
+    padding: 50px;
+    padding-top: 10px;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    img {
+        border-radius: 50%;
+    }
+    .nameDate {
+        margin-top: 15px;
+        margin-left: 20px;
+        h6 {
+            font-weight: bold;
+        }
+        p {
+            font-size: .8rem;
+        }
+    }
+}
+.post {
+    background-color: white;
+    padding: 50px;
+    padding-top: 0px;
+    h1 {
+        font-size: 3rem;
+        font-weight: 900;
+    }
+    .tags {
+        display: flex;
+        justify-content: space-evenly;
+        width: 50%;
+        margin-top: 20px;
+        .tag {
+            padding: 5px;
+            border-radius: 7px;
+            border: 1px solid white;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .tag:hover {
+            background-color: #ebecfc;
+            border: 1px solid #bbbff4;
+        }
+    }
+    p {
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+}
+
+//Columna derecha
+.writer {
+    display: flex;
+    align-items: flex-end;
+    img {
+        border-radius: 50%;
+    }
+    h5 {
+        font-weight: 700;
+    }
+}
+.card-text {
+    font-size: 1rem;
+    color: #57575e;
+}
+.info {
+    font-size: .8rem;
+    font-weight: 700;
+    color: #57575e;
+}
+.card-title {
+    font-weight: 700;
+    span {
+        color: #3b49df;
+        cursor: pointer;
+    }
+}
+.card {
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    @media (max-width: 1000px) {
+        display: none;
+      }
+}
