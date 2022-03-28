@@ -43,13 +43,27 @@ const posting = (e) =>
 const createPost = ( image, title, avatar, tags, contentText, funcion) =>
 {
     const url=`${urlDB}/posts.json`;
-    const tiempoActual = new Date();
 
-    let postID = `${tiempoActual.getTime()}${tiempoActual.getMilliseconds()}`;
-    let datetime = tiempoActual.getTime();
+    let today = new Date();
+    let time = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    today = dd + '/' + mm + '/' + yyyy;
+
+
+    const tiempoActual = today;
+
+    let postID = `${time.getTime()}${time.getMilliseconds()}`;
+    let datetime = tiempoActual;
     let counterReactions = 0;
     let counterComents = 0;
-    let nameP = "Pedro Lopez";
+    let nameP = "Ada Lovelace";
+    avatar = "https://api.binary-coffee.dev/uploads/Ada_Lovelace_Chalon_portrait_4d642eaf6a.jpeg"
     
     
 

@@ -27,8 +27,8 @@ const getPosts2 = async () => {
         postHTML += `${tag}    `
       })
 
-    if (post.ContentText)
-      postHTML += `<p class="card-text">${post.ContentText}</p>`
+    if (post.contentText)
+      postHTML += `<p class="card-text">${post.contentText.substring(0,50)}...</p>`
     postHTML += `<div class="d-flex justify-content-between">
             <div><span><i class="bi bi-suit-heart"></i> ${post.counterReactions} Reactios</span>
               <span><i class="bi bi-chat-right"></i> ${post.counterComents} Comments</span>
