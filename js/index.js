@@ -1,16 +1,17 @@
 const urlDB = "https://devto-3e84b-default-rtdb.firebaseio.com/"
-const containerPosts=document.querySelector('#posts');
+const containerPosts = document.querySelector('#posts');
 
-const getPosts2=async()=>
-{
-    const url=`${urlDB}/posts.json`;
-    const respuesta=await fetch(url);
-    const body=await respuesta.json();
-    const postsValues = Object.values(body);
-    console.log(postsValues);
-    postsValues.forEach((post)=>{
+const getPosts2 = async () => {
+  const url = `${urlDB}/posts.json`;
+  const respuesta = await fetch(url);
+  const body = await respuesta.json();
+  const postsValues = Object.values(body);
 
-        let postHTML = `
+  const postKeys = Object.keys(body);
+  for (let key of postKeys) {
+    let post = body[key];
+
+    let postHTML = `
        <div class="card">
         <div class="d-flex">
           <img src="${post.avatar}" width="32em"
@@ -21,26 +22,55 @@ const getPosts2=async()=>
         </div>
         <div class="card-body">
           <h4 class="card-title">${post.title}</h4>`
-          if(post.tags)
-          post.tags.forEach((tag)=>{
-            postHTML+=`${tag}    `
-          })
-          
-          if(post.ContentText)
-          postHTML+=`<p class="card-text">${post.ContentText}</p>`
-          postHTML+=`<div class="d-flex justify-content-between">
+    if (post.tags)
+      post.tags.forEach((tag) => {
+        postHTML += `${tag}    `
+      })
+
+    if (post.contentText)
+      postHTML += `<p class="card-text">${post.contentText.substring(0,50)}...</p>`
+    postHTML += `<div class="d-flex justify-content-between">
             <div><span><i class="bi bi-suit-heart"></i> ${post.counterReactions} Reactios</span>
               <span><i class="bi bi-chat-right"></i> ${post.counterComents} Comments</span>
             </div>
-            <div><a href="#" class="btn btn-secondary btn-sm">Update</a>
-              <a href="#" class="btn btn-secondary btn-sm">Delete</a>
+            <div>
+              <a onclick="editPost('${key}')" class="btn btn-secondary btn-sm">Update</a>
+              <a onclick="deletePost('${key}')" class="btn btn-secondary btn-sm">Delete</a>
             </div>
           </div>
         </div>
       </div>`
 
-      containerPosts.insertAdjacentHTML('beforeend',postHTML);
+    containerPosts.insertAdjacentHTML('beforeend', postHTML);
+
+  }
+
+  document.editPost = (firebaseID) => {
+    window.location.assign(`/editPost.html?id=${firebaseID}`);
+  }
+
+
+}
+
+const deletePost = (fireBaseID) => {
+
+  const del = confirm("Lo quieres eliminar ?")
+  if (del) {
+    document.getElementById("posts").innerHTML = "";
+    
+    const url = `${urlDB}/posts/${fireBaseID}.json`;
+    fetch(url, {
+      method: 'DELETE'
     })
+      .then(respuesta => respuesta.json())
+      .then((body) => {
+        getPosts2();
+      }
+
+      )
+      .catch((error) => console.log(error));
+  }
+
 }
 
 getPosts2();

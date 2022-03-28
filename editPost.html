@@ -9,7 +9,7 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <title>New Post - DEV Community 👩‍💻👨‍💻</title>
+    <title>Edit Post - DEV Community 👩‍💻👨‍💻</title>
 </head>
 <body style="background:rgb(245,245,245);">
     <main>
@@ -18,11 +18,11 @@
                 <a href="./index.html" style="text-decoration: none;">
                     <img width="50px" class="me-2 d-none d-md-inline" src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" alt="DEV Community">
                 </a>
-                Create Post
+                Edit Post
             </div>
             <div class="d-flex align-items-center">
                 <button class="btn btn-outline-secondary ms-2 me-2" style="color:black">
-                    Edit
+                    Update
                 </button>
                 <button class="btn btn-outline-secondary ms-2 me-2" style="color:black">
                     Preview
@@ -43,12 +43,12 @@
                             <div class="p-4 justify-content-between">
                                 <input id="postImg" type="url" class="mb-3 rounded" placeholder="Add a cover image">
                                 <h1 class="mt-3 mb-3">
-                                    <input id="postTitle" onclick="showAid(event)" class="w-100" type="text" placeholder="New post title here..."  style="border:none">
+                                    <input id="postTitle" class="w-100" type="text" placeholder="New post title here..."  style="border:none">
                                 </h1>
                                 <div class="d-flex mt-3">
                                     <div id="tagsContainer" class="d-flex">
                                     </div>
-                                    <input id="tagCreator" onclick="showAid(event)" onchange="addTag(event)" type="text" class="form-control p-1" type="text" placeholder="Add up to 4 tags..."  style="border:none">
+                                    <input id="tagCreator" onchange="addTag(event)" type="text" class="form-control p-1" type="text" placeholder="Add up to 4 tags..."  style="border:none">
                                 </div>
                             </div>
                             <div class="">
@@ -128,7 +128,7 @@
                                 </div>
                                 <div class="p-4">
                                     <div class="form-floating">
-                                        <textarea id="postTextContent" onclick="showAid(event)" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 110px; border:none"></textarea>
+                                        <textarea id="postTextContent" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 110px; border:none"></textarea>
                                         <label for="floatingTextarea2">Write your post content here...</label>
                                     </div>
                                 </div>
@@ -138,8 +138,8 @@
                         </div>                      
                         <div class="d-flex align-items-center justify-content-center mt-3">
                             <div class="card d-flex flex-row" style="border: none; background-color: transparent;">
-                                <button onclick="posting()" type="button" class="btn btn-primary me-2">
-                                    Publish
+                                <button onclick="sendUpdate()" type="button" class="btn btn-primary me-2">
+                                    Update
                                 </button>
                                 <button type="button" class="btn btn-outline-primary me-2" style="border:none; color:black">
                                     <span>Save</span>
@@ -156,7 +156,7 @@
                         </div>
                     </div>
                     
-                    <div id="TitleAid" class="d-none d-md-inline w-25">
+                    <!-- <div id="TitleAid" class="d-none d-md-inline w-25">
                         <h5>
                             Writing a Great Post Title
                         </h5>
@@ -215,7 +215,7 @@
                         </ul>
                     </div>
                     
-                </div>
+                </div> -->
                 
                 <!-- <div class="m-3 d-flex p-3 align-items-center justify-content-center">
                     <div class="card d-flex flex-row" style="border: none; background-color: transparent;">
@@ -242,6 +242,6 @@
     </main>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./js/newPost.js"></script>
+    <script src="./js/editPost.js"></script>
 </body>
 </html>

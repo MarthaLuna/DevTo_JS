@@ -28,10 +28,8 @@ const createPost = ( image, title, avatar, tags, contentText, funcion) =>
     .catch((error)=>console.log(error));
 }
 
-let tags= ["#javascritp", "#html", "#web"];
-createPost( "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", "programacion web", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", tags, "Aqui va toda la descripción",  (body) => {
-    //console.log(body)
-})
+
+
 
 
 
@@ -56,17 +54,7 @@ const getPosts2=async()=>
 //getPosts2()
 
 
-const deletePost = (fireBaseID) => {
 
-	const url = `${urlDB}/posts/${fireBaseID}.json`;
-	fetch(url, {
-		method: 'DELETE'
-	})
-	 .then(respuesta => respuesta.json())
-	 .then((body) => console.log(body))
-	 .catch((error) => console.log(error));
-
-}
 
 //deletePost("-Mz7Lqsv3kZ6vFZ-urfC");
 

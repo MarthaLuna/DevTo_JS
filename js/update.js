@@ -28,6 +28,3 @@ const updatePost = (fireBaseID, image, title, avatar, tags, contentText, funcion
 	 .catch((error) => console.log(error));
 
 }
-updatePost("-Mz7ezgQhj3bcXYrt6Xs", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", "programacion web", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", tags, "Aqui va toda la descripción",  (body) => {
-    //console.log(body)
-})
