@@ -5,28 +5,46 @@
           box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 1000px) {
+  html {
+    font-size: 12px;
+  }
+}
+
 body {
   background-color: #f8f8f8;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
 }
 
 #general {
   width: 85vw;
   margin: 0 auto;
+  margin-top: 80px;
 }
 
 .actions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  height: 300px;
   color: #3d3d3d;
   margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .actions {
+    display: none;
+  }
 }
 
 .actions path {
@@ -34,6 +52,7 @@ body {
 }
 
 .actions .heart {
+  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,6 +64,16 @@ body {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .actions .heart {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 50px;
+  }
 }
 
 .actions .heart .heartDiv {
@@ -65,6 +94,8 @@ body {
 }
 
 .actions .unicorn {
+  position: fixed;
+  margin-top: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,6 +107,16 @@ body {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .actions .unicorn {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 50px;
+  }
 }
 
 .actions .unicorn .unicornDiv {
@@ -96,6 +137,8 @@ body {
 }
 
 .actions .bookmark {
+  position: fixed;
+  margin-top: 120px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,6 +150,16 @@ body {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .actions .bookmark {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 50px;
+  }
 }
 
 .actions .bookmark .bookmarkDiv {
@@ -127,11 +180,23 @@ body {
 }
 
 .actions .more {
+  position: fixed;
+  margin-top: 180px;
   padding: 5px;
   border-radius: 50%;
   cursor: pointer;
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
+}
+
+@media (max-width: 600px) {
+  .actions .more {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 50px;
+  }
 }
 
 .actions .more path {
@@ -151,6 +216,12 @@ body {
 @media (max-width: 1000px) {
   .col-8 {
     width: 77vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .col-8 {
+    width: 100vw;
   }
 }
 
@@ -203,9 +274,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 50%;
   margin-top: 20px;
 }
@@ -227,6 +298,13 @@ body {
 .post p {
   font-size: 1.3rem;
   font-weight: 500;
+}
+
+.col-3 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 80px;
+  height: 300px;
 }
 
 .writer {
