@@ -145,7 +145,7 @@ const addTag=(e)=>
         if(elemets==0){e.target.placeholder='Add another...';}
         if(elemets==2){e.target.placeholder='Add one more...';}
         const tag=`
-        <span class="rounded-pill alert alert-warning alert-dismissible fade show m-0 me-1 pt-1 pb-1 ps-2 d-flex" role="alert">
+        <span id="tagCard" class="rounded-pill alert alert-warning alert-dismissible fade show m-0 me-1 pt-1 pb-1 ps-2 d-flex" role="alert">
             <div id="postTags" class="">#${e.target.value}</div>
             <button type="button" onclick="removeTag()" class="text-dark btn-close pt-3 pb-1 pe-1 me-1" data-bs-dismiss="alert" aria-label="Close"></button>
         </span>
@@ -182,6 +182,36 @@ const cleanForm = (e) =>
         tagsContainer.innerHTML='';
         tags=[];
     }
+}
+
+const showAid = (e) =>
+{
+    const TitleAid   =document.getElementById('TitleAid');
+    const TagsAid    =document.getElementById('TagsAid');
+    const ContentAid =document.getElementById('ContentAid');
+
+    const claseTitle=Array.from(TitleAid.classList).find((clase)=>clase=='d-md-inline');
+    const claseTags=Array.from(TagsAid.classList).find((clase)=>clase=='d-md-inline');
+    const claseContent=Array.from(ContentAid.classList).find((clase)=>clase=='d-md-inline');
+
+    if(e.target.id=='postTitle')
+    {
+        if(!claseTitle){TitleAid.classList.add("d-md-inline");}
+        if(claseTags){TagsAid.classList.remove('d-md-inline');}
+        if(claseContent){ContentAid.classList.remove('d-md-inline');}
+    }
+    else if(e.target.id=='tagCreator')
+    {
+        if(!claseTags){TagsAid.classList.add('d-md-inline');}
+        if(claseTitle){TitleAid.classList.remove('d-md-inline');}
+        if(claseContent){ContentAid.classList.remove('d-md-inline');}
+    }
+    else
+    {
+        if(!claseContent){ContentAid.classList.add('d-md-inline');}
+        if(claseTags){TagsAid.classList.remove('d-md-inline');}
+        if(claseTitle){TitleAid.classList.remove('d-md-inline');}
+    }    
 }
 
 callPost();

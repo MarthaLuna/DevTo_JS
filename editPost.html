@@ -13,7 +13,7 @@
 </head>
 <body style="background:rgb(245,245,245);">
     <main>
-        <div class="m-2 d-flex align-items-center justify-content-start justify-content-sm-between">
+        <div class="m-2 d-flex align-items-center justify-content-end justify-content-sm-between">
             <div class="d-flex align-items-center d-none d-sm-inline">
                 <a href="./index.html" style="text-decoration: none;">
                     <img width="50px" class="me-2 d-none d-md-inline" src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" alt="DEV Community">
@@ -41,14 +41,14 @@
                     <div class="d-flex flex-column align-items-start">
                         <div class="bg-white card me-md-3">
                             <div class="p-4 justify-content-between">
-                                <input id="postImg" type="url" class="mb-3 rounded" placeholder="Add a cover image">
+                                <input id="postImg" type="url" class="p-1 mb-3 rounded" placeholder="Add a cover image">
                                 <h1 class="mt-3 mb-3">
-                                    <input id="postTitle" class="w-100" type="text" placeholder="New post title here..."  style="border:none">
+                                    <input id="postTitle" onclick="showAid(event)" class="w-100 p-1" type="text" placeholder="New post title here..."  style="border:none">
                                 </h1>
                                 <div class="d-flex mt-3">
-                                    <div id="tagsContainer" class="d-flex">
+                                    <div id="tagsContainer" class="d-flex flex-wrap flex-sm-nowrap">
                                     </div>
-                                    <input id="tagCreator" onchange="addTag(event)" type="text" class="form-control p-1" type="text" placeholder="Add up to 4 tags..."  style="border:none">
+                                    <input id="tagCreator" onclick="showAid(event)" onchange="addTag(event)" type="text" class="form-control p-1" type="text" placeholder="Add up to 4 tags..."  style="border:none">
                                 </div>
                             </div>
                             <div class="">
@@ -128,7 +128,7 @@
                                 </div>
                                 <div class="p-4">
                                     <div class="form-floating">
-                                        <textarea id="postTextContent" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 110px; border:none"></textarea>
+                                        <textarea onclick="showAid(event)" id="postTextContent" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 110px; border:none"></textarea>
                                         <label for="floatingTextarea2">Write your post content here...</label>
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@
                         </div>
                     </div>
                     
-                    <!-- <div id="TitleAid" class="d-none d-md-inline w-25">
+                    <div id="TitleAid" class="d-none d-md-inline w-25">
                         <h5>
                             Writing a Great Post Title
                         </h5>
@@ -215,7 +215,7 @@
                         </ul>
                     </div>
                     
-                </div> -->
+                </div>
                 
                 <!-- <div class="m-3 d-flex p-3 align-items-center justify-content-center">
                     <div class="card d-flex flex-row" style="border: none; background-color: transparent;">
