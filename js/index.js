@@ -9,7 +9,6 @@ const getPosts2 = async () => {
   const postValues=Object.keys(body).map((id)=>
   {
     const post=body[id];
-    console.log(id);
     return{
       firebaseID:id.toString(),
       postID:post.postID,
@@ -28,16 +27,16 @@ const getPosts2 = async () => {
     }
   });
 
-  console.log(postValues);
   postValues.forEach((post)=> {
+    console.log(post.datetime);
 
     let postHTML = `
-       <div class="card">
+       <div ondblclick="openPost('${post.firebaseID}')" class="card">
         <div class="d-flex">
           <img src="${post.avatar}" width="32em"
             height="32em" class="rounded-pill ms-3 mt-3 gap-3" alt="posts_avatar">
           <div class="d-flex flex-column mt-3 ms-1"><span>${post.nameP}</span>
-            <small>${post.datetime}</small>
+            <small>${post.day}/${post.month}/${post.year}</small>
           </div>
         </div>
         <div class="card-body">
@@ -67,8 +66,12 @@ const getPosts2 = async () => {
 
 document.editPost = (firebaseID) => 
 {
-  console.log(firebaseID);
-  window.location.assign(`/editPost.html?id=${firebaseID}`);
+  window.location.assign(`./editPost.html?id=${firebaseID}`);
+}
+
+document.openPost = (firebaseID) => 
+{
+  window.location.assign(`./bigpost.html?id=${firebaseID}`);
 }
 
 const deletePost = (fireBaseID) => {
@@ -84,12 +87,9 @@ const deletePost = (fireBaseID) => {
       .then(respuesta => respuesta.json())
       .then((body) => {
         getPosts2();
-      }
-
-      )
+      })
       .catch((error) => console.log(error));
   }
-
 }
 
 getPosts2();

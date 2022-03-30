@@ -39,14 +39,14 @@ const createPost = (image, title, avatar, tags, contentText, funcion) =>
     const yyyy = today.getFullYear();
     let mm = today.getMonth() + 1; // Months start at 0!
     let dd = today.getDate();
-    const day=dd;
-    const month=mm;
-    const year=yyyy;
     if (dd < 10) dd = '0' + dd;
     if (mm < 10) mm = '0' + mm;
     today = dd + '/' + mm + '/' + yyyy;
-    const tiempoActual = today;
-    let datetime = tiempoActual;
+    //const tiempoActual = today;
+    let datetime = new Date();
+    const day=dd;
+    const month=mm;
+    const year=yyyy;
 
     let firebaseID='';
     let postID = `${time.getTime()}${time.getMilliseconds()}`;
