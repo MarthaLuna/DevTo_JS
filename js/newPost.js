@@ -78,7 +78,7 @@ const addTag=(e)=>
         if(elemets==0){e.target.placeholder='Add another...';}
         if(elemets==2){e.target.placeholder='Add one more...';}
         const tag=`
-        <span class="rounded-pill alert alert-warning alert-dismissible fade show m-0 me-1 pt-1 pb-1 ps-2 d-flex" role="alert">
+        <span id="tagCard" class="rounded-pill alert alert-warning alert-dismissible fade show m-0 me-1 pt-1 pb-1 ps-2 d-flex" role="alert">
             <div id="postTags" class="">#${e.target.value}</div>
             <button type="button" onclick="removeTag()" class="text-dark btn-close pt-3 pb-1 pe-1 me-1" data-bs-dismiss="alert" aria-label="Close"></button>
         </span>

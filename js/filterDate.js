@@ -55,11 +55,11 @@ const filterPosts=async(dateFilter)=>
                 {   
                     return parseInt(post.year)==currentYear;
                 });
-            console.log(filteredPosts);
+            //console.log(filteredPosts);
             postValues=filteredPosts;
         }
     }
-    console.log(postValues);
+    //console.log(postValues);
     postValues.forEach((post)=> {
 
         let postHTML = `

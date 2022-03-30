@@ -1,15 +1,27 @@
-#textFormating
+@media (max-width:500px)
 {
-    width: auto;
-    height: auto;
-    overflow: auto;
-    overflow-y: hidden;
-    margin: 0 auto;
-    white-space: nowrap
+    #textFormating
+    {
+        width: 20rem;
+        height: auto;
+        overflow: auto;
+        /* overflow-y: hidden; */
+        margin: 0 auto;
+        white-space: nowrap
+    }
 }
+
+/*@media (max-width:400px)
+{
+    #tagCard
+    {
+        font-size: 10px;
+    }
+}*/
 
 h1
 {
     width: auto;
+    display: inline;
 }
 

@@ -28,8 +28,7 @@ const getPosts2 = async () => {
   });
 
   postValues.forEach((post)=> {
-    console.log(post.datetime);
-
+    //console.log(post.datetime);
     let postHTML = `
        <div ondblclick="openPost('${post.firebaseID}')" class="card">
         <div class="d-flex">
