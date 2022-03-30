@@ -63,7 +63,8 @@ const updatePost = (fireBaseID, image, title, avatar, tags, contentText, funcion
     let updated=true;
     let counterReactions = 4;
     let counterComents = 4;
-    let nameP = "Flavio Morales"
+    let nameP = "Ada Lovale"
+    avatar = "https://api.binary-coffee.dev/uploads/Ada_Lovelace_Chalon_portrait_4d642eaf6a.jpeg"
     
     const post = {fireBaseID,postID, datetime, day, month, year, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP, updated};
 
@@ -88,6 +89,7 @@ const sendUpdate=()=>
     updatePost(id, postImg.value, postTitle.value, postImg.value, tags, postTextContent.value, (body)=>
     {
         console.log(body);
+        alert("POST UPDATED SUCESSFULLY!")
     });
     tags=[];
     //cleanForm();

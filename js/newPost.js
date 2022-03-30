@@ -20,6 +20,7 @@ const posting = (e) =>
         createPost(postImg.value,postTitle.value,postImg.value,tags,postTextContent.value, (body)=>{
             console.log(body);
          });
+         alert("POST SAVED SUCCESSFULLY")
          tags=[];
         //cleanForm();
         //goHome();

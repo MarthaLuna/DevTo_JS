@@ -19,7 +19,7 @@ const callPost = async()=>
         let post=await respuesta.json();
         //console.log(post);
         heroImg.src = post.image
-        avatar.src = post.image;
+        avatar.src = post.avatar;
         userName.textContent = post.nameP
         date.textContent = post.dateTime
         title.textContent = post.title
@@ -30,14 +30,7 @@ const callPost = async()=>
             tag.insertAdjacentHTML('beforeend',x + '&nbsp&nbsp' );
 
         })
-        /* if(post.tags.length>0)
-        {
-            for(let i of post.tags)
-            {
-                tagCreator.value=i;
-                recoverEachTag(tagCreator);
-            }
-        } */
+
     } catch (error)
     {
             
