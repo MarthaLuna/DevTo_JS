@@ -213,6 +213,144 @@ body {
   transition: all .5s ease;
 }
 
+.horizontal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: #f8f8f8;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #3d3d3d;
+}
+
+@media (min-width: 600px) {
+  .horizontal {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .horizontal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.horizontal path {
+  fill: #3d3d3d;
+}
+
+.horizontal .heart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.horizontal .heart .heartDiv {
+  padding: 5px;
+  border-radius: 50%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.horizontal .heart .heartDiv:hover {
+  background-color: #f2e0e0;
+}
+
+.horizontal .heart .heartDiv:hover path {
+  fill: #dc2626;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.horizontal .unicorn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.horizontal .unicorn .unicornDiv {
+  padding: 5px;
+  border-radius: 50%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.horizontal .unicorn .unicornDiv:hover {
+  background-color: #ddebe7;
+}
+
+.horizontal .unicorn .unicornDiv:hover path {
+  fill: #059669;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.horizontal .bookmark {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.horizontal .bookmark .bookmarkDiv {
+  padding: 5px;
+  border-radius: 50%;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.horizontal .bookmark .bookmarkDiv:hover {
+  background-color: #e4e3f3;
+}
+
+.horizontal .bookmark .bookmarkDiv:hover path {
+  fill: #4f46e5;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.horizontal .more {
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.horizontal .more path {
+  fill: #919191;
+}
+
+.horizontal .more:hover {
+  background-color: #f2f2f2;
+}
+
+.horizontal .more:hover path {
+  fill: #3d3d3d;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
 @media (max-width: 1000px) {
   .col-8 {
     width: 77vw;
