@@ -7,40 +7,30 @@ const tagsContainer=document.getElementById('tagsContainer');
 
 let tags=[];
 
+const goHome = () => 
+{
+  window.location.assign(`./index.html`);
+}
+
 const posting = (e) =>
 {   
     if(postTitle.value&&postTextContent.value)
     {
         recoverTags();
-        //console.log('Se puede publicar');
         createPost(postImg.value,postTitle.value,postImg.value,tags,postTextContent.value, (body)=>{
             console.log(body);
          });
-        cleanForm();
+         tags=[];
+        //cleanForm();
+        //goHome();
     }
     else
     {
         console.log('NO se puede');
     }
-    //e.preventDefault();
-    //let tags= ["#javascritp", "#html", "#web"];
-    /*createPost( "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", "programacion web", "https://talently.tech/blog/wp-content/uploads/2021/11/Frame-57.png", tags, "Aqui va toda la descripción",  (body) => {
-    console.log(body)
-    })*/
-
-    /*console.log("Image: ", postImg.value,"title: ", postTitle.value, "Image: ",postImg.value, "Tags: ", postTags.value, "TextContent: ",postTextContent.value);
-    const img = postImg.value
-     createPost(img,postTitle.value,postImg.value,tags,postTextContent.value, (body)=>{
-        console.log(body);
-     });
-     */
-     
-     /*recoverTags();
-     tags=[];
-     console.log('Estoy haciendo submit');*/
 }
 
-const createPost = ( image, title, avatar, tags, contentText, funcion) =>
+const createPost = (image, title, avatar, tags, contentText, funcion) =>
 {
     const url=`${urlDB}/posts.json`;
 
@@ -49,25 +39,24 @@ const createPost = ( image, title, avatar, tags, contentText, funcion) =>
     const yyyy = today.getFullYear();
     let mm = today.getMonth() + 1; // Months start at 0!
     let dd = today.getDate();
-
+    const day=dd;
+    const month=mm;
+    const year=yyyy;
     if (dd < 10) dd = '0' + dd;
     if (mm < 10) mm = '0' + mm;
-
     today = dd + '/' + mm + '/' + yyyy;
-
-
     const tiempoActual = today;
-
-    let postID = `${time.getTime()}${time.getMilliseconds()}`;
     let datetime = tiempoActual;
+
+    let firebaseID='';
+    let postID = `${time.getTime()}${time.getMilliseconds()}`;
+    let updated=false;
     let counterReactions = 0;
     let counterComents = 0;
     let nameP = "Ada Lovelace";
     avatar = "https://api.binary-coffee.dev/uploads/Ada_Lovelace_Chalon_portrait_4d642eaf6a.jpeg"
     
-    
-
-    const post = {postID, datetime, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP};
+    const post = {firebaseID, postID, datetime, day, month, year, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP, updated};
 
     fetch(url,{
         method:'POST',
@@ -106,14 +95,10 @@ const addTag=(e)=>
 
 const recoverTags = () =>
 {
-    //tags=Array.from(document.querySelectorAll('#postTags'));
     const postTags = Array.from(document.querySelectorAll('#postTags'));
     if(postTags.length>0)
     {
-        postTags.forEach((tag)=>{
-            tags.push(tag.textContent);
-        })
-        //console.log(tags)
+        postTags.forEach((tag)=>{tags.push(tag.textContent);})
     }
 }
 
@@ -169,7 +154,6 @@ const showAid = (e) =>
 
 const cleanForm = (e) =>
 {
-    //e.preventDefault();
     postTitle.value='';
     postTextContent.value='';
     postImg.value='';

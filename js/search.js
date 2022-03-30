@@ -11,12 +11,35 @@ const search=async()=>
     const url=`${urlDB}/posts.json`;
     const respuesta=await fetch(url);
     const body=await respuesta.json();
-    const postsValues = Object.values(body);
-    console.log(postsValues);
-    const title = find.value;
+
+    const postValues=Object.keys(body).map((id) =>
+    {
+      const post=body[id];
+      console.log(id);
+      return{
+        firebaseID:id.toString(),
+        postID:post.postID,
+        datetime:post.datetime,
+        day:post.day,
+        month:post.month,
+        year:post.year,
+        counterReactions:post.counterReactions,
+        counterComents:post.counterComents,
+        image:post.image,
+        title:post.title,
+        avatar:post.avatar,
+        tags:post.tags,
+        contentText:post.contentText,
+        nameP:post.nameP,
+      }
+    });
+
+    
+    console.log(postValues);
+    const title = find.value.toLowerCase();
     console.log(title)
 
-    const posts = postsValues.filter((post)=>post.title.includes(title))
+    const posts = postValues.filter((post)=>post.title.toLowerCase().includes(title))
     console.log(posts)
     posts.forEach((post)=>{
 
@@ -42,8 +65,9 @@ const search=async()=>
             <div><span><i class="bi bi-suit-heart"></i> ${post.counterReactions} Reactios</span>
               <span><i class="bi bi-chat-right"></i> ${post.counterComents} Comments</span>
             </div>
-            <div><a href="#" class="btn btn-secondary btn-sm">Update</a>
-              <a href="#" class="btn btn-secondary btn-sm">Delete</a>
+            <div>
+            <a onclick="editPost('${post.firebaseID}')" class="btn btn-secondary btn-sm">Update</a>
+            <a onclick="deletePost('${post.firebaseID}')" class="btn btn-secondary btn-sm">Delete</a>
             </div>
           </div>
         </div>

@@ -5,11 +5,31 @@ const getPosts2 = async () => {
   const url = `${urlDB}/posts.json`;
   const respuesta = await fetch(url);
   const body = await respuesta.json();
-  const postsValues = Object.values(body);
 
-  const postKeys = Object.keys(body);
-  for (let key of postKeys) {
-    let post = body[key];
+  const postValues=Object.keys(body).map((id)=>
+  {
+    const post=body[id];
+    console.log(id);
+    return{
+      firebaseID:id.toString(),
+      postID:post.postID,
+      datetime:post.datetime,
+      day:post.day,
+      month:post.month,
+      year:post.year,
+      counterReactions:post.counterReactions,
+      counterComents:post.counterComents,
+      image:post.image,
+      title:post.title,
+      avatar:post.avatar,
+      tags:post.tags,
+      contentText:post.contentText,
+      nameP:post.nameP,
+    }
+  });
+
+  console.log(postValues);
+  postValues.forEach((post)=> {
 
     let postHTML = `
        <div class="card">
@@ -34,22 +54,21 @@ const getPosts2 = async () => {
               <span><i class="bi bi-chat-right"></i> ${post.counterComents} Comments</span>
             </div>
             <div>
-              <a onclick="editPost('${key}')" class="btn btn-secondary btn-sm">Update</a>
-              <a onclick="deletePost('${key}')" class="btn btn-secondary btn-sm">Delete</a>
+              <a onclick="editPost('${post.firebaseID}')" class="btn btn-secondary btn-sm">Update</a>
+              <a onclick="deletePost('${post.firebaseID}')" class="btn btn-secondary btn-sm">Delete</a>
             </div>
           </div>
         </div>
       </div>`
 
     containerPosts.insertAdjacentHTML('beforeend', postHTML);
+  });  
+}
 
-  }
-
-  document.editPost = (firebaseID) => {
-    window.location.assign(`/editPost.html?id=${firebaseID}`);
-  }
-
-
+document.editPost = (firebaseID) => 
+{
+  console.log(firebaseID);
+  window.location.assign(`/editPost.html?id=${firebaseID}`);
 }
 
 const deletePost = (fireBaseID) => {

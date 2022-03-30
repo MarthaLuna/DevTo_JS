@@ -10,7 +10,11 @@ const tagCreator=document.getElementById('tagCreator');
 let tags=[];
 
 const urlDB2 = "https://devto-3e84b-default-rtdb.firebaseio.com/"
-//console.log(id);
+
+const goHome = () => 
+{
+  window.location.assign(`./index.html`);
+}
 
 const callPost = async()=>
 {
@@ -30,10 +34,7 @@ const callPost = async()=>
                 tagCreator.value=i;
                 recoverEachTag(tagCreator);
             }
-            //console.log(tagsContainer.children.length);
         }
-        //console.log(post.tags.length);
-
     } catch (error)
     {
             
@@ -44,15 +45,27 @@ const updatePost = (fireBaseID, image, title, avatar, tags, contentText, funcion
 
 	const url = `${urlDB2}posts/${fireBaseID}.json`;
 
-    const tiempoActual = new Date();
+    let today = new Date();
+    let time = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+    const day=dd;
+    const month=mm;
+    const year=yyyy;
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    today = dd + '/' + mm + '/' + yyyy;
+    const tiempoActual = today;
+    let datetime = tiempoActual;
 
-    let postID = `${tiempoActual.getTime()}${tiempoActual.getMilliseconds()}`;
-    let datetime = tiempoActual.getTime();
+    let postID = `${time.getTime()}${time.getMilliseconds()}`;
+    let updated=true;
     let counterReactions = 4;
     let counterComents = 4;
     let nameP = "Flavio Morales"
     
-    const post = {postID, datetime, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP};
+    const post = {fireBaseID,postID, datetime, day, month, year, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP, updated};
 
 	fetch(url, {
 		method: 'PUT',
@@ -65,7 +78,6 @@ const updatePost = (fireBaseID, image, title, avatar, tags, contentText, funcion
 	 .then(respuesta => respuesta.json())
 	 .then((body) => funcion(body))
 	 .catch((error) => console.log(error));
-
 }
 
 const sendUpdate=()=>
@@ -78,7 +90,8 @@ const sendUpdate=()=>
         console.log(body);
     });
     tags=[];
-    cleanForm();
+    //cleanForm();
+    //goHome();
 }
 
 const removeTag = () =>
@@ -103,7 +116,6 @@ const removeTag = () =>
 
 const recoverEachTag=(e)=>
 {
-    //console.log(e);
     let elemets=tagsContainer.children.length;
     if(elemets<=3)
     {
