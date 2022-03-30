@@ -7,77 +7,338 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  <title>DEVTo</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <title>DEV Community 👩‍💻👨‍💻</title>
 </head>
 
-<body>
+<body class="white">
   <div class="container-fluid">
-    <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <!-- https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png -->
-          <!-- ./img/devto.png -->
-          <a class="navbar-brand" href="#"><img class="" height="50px" width="80px"
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light add">
+      <div class="d-flex justify-content-between size add white">
+
+
+        <div class="ms-3">
+
+          <a class="smallnav btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg></a>
+
+          
+
+
+          <a class="navbar-brand" href="#"><img class="" height="30px" width="33px"
               src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"></a>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-
-            
-              <input onchange="search()" id="search" class="form-control me-2" type="text" placeholder="Search..." aria-label="Search">
-
-            
-
-          </div>
-          <div>
-            <a href="./newPost.html" type="button" class="btn btn-outline-primary">Create Post</a>
-            <i class="bi bi-bell"></i>
-            <img class="rounded-pill" height="50px" width="50px"
-              src="https://static1.abc.es/media/play/2020/09/29/avatar-kE4H--1024x512@abc.jpeg">
-          </div>
+          <input onchange="search()" id="search" class="bignav " size="20" type="text" placeholder="Search..."
+            aria-label="Search">
         </div>
-      </nav>
-    </div>
 
-    <aside id="left" class="d-none d-sm-inline">
-    </aside>
 
-    <div id="center">
-      <div id="filters">
-        <button onclick="filterPosts('All')" class="btn btn-outline-primary">
-          All
-        </button>
-        <button onclick="filterPosts('lastWeek')" class="btn btn-outline-primary">
-          Last Week
-        </button>
-        <button onclick="filterPosts('lastMonth')" class="btn btn-outline-primary">
-          Last Month
-        </button>
-        <button onclick="filterPosts('lastYear')" class="btn btn-outline-primary">
-          Last Year
-        </button>
+
+
+
+        <div class="d-flex justify-content-end gap-3 me-5 mt-1 mb-1">
+          <a href="./newPost.html" type="button" class="bignav btn btn-outline-primary">Create Post</a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+            class="smallnav me-1 bi bi-search" viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="me-1 bi bi-bell"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+          </svg>
+          <img class="rounded-pill" height="30px" width="30px"
+            src="https://api.binary-coffee.dev/uploads/Ada_Lovelace_Chalon_portrait_4d642eaf6a.jpeg">
+        </div>
+
+
+        
+
       </div>
 
-      <div id="posts">
+      
+
+    </nav>
+
+    <div class=" d-flex size gap-3 mt-5">
+
+     <!-- OFF CANVAS MENU -->
+      
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Dev Community</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body ">
+          <div class="d-flex flex-column align-content-start align-items-start">
+          <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="pink" class="bi bi-house-heart" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.707L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.646a.5.5 0 0 0 .708-.707L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207l-5-5-5 5V13.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7.207Zm-5-.225C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.309 8 6.982Z"/>
+          </svg> Home</a>
+          <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-inboxes" viewBox="0 0 16 16">
+            <path d="M4.98 1a.5.5 0 0 0-.39.188L1.54 5H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0A.5.5 0 0 1 10 5h4.46l-3.05-3.812A.5.5 0 0 0 11.02 1H4.98zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562A.5.5 0 0 0 1.884 9h12.234a.5.5 0 0 0 .496-.438L14.933 6zM3.809.563A1.5 1.5 0 0 1 4.981 0h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 10H1.883A1.5 1.5 0 0 1 .394 8.686l-.39-3.124a.5.5 0 0 1 .106-.374L3.81.563zM.125 11.17A.5.5 0 0 1 .5 11H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0 .5.5 0 0 1 .5-.5h5.5a.5.5 0 0 1 .496.562l-.39 3.124A1.5 1.5 0 0 1 14.117 16H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393zm.941.83.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438l.32-2.562H10.45a2.5 2.5 0 0 1-4.9 0H1.066z"/>
+          </svg> Reading List</a>
+          <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-card-list" viewBox="0 0 16 16">
+            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+            <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+          </svg> Listings</a>
+          <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-camera-reels" viewBox="0 0 16 16">
+            <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM1 3a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/>
+            <path d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h7zm6 8.73V7.27l-3.5 1.555v4.35l3.5 1.556zM1 8v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z"/>
+            <path d="M9 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM7 3a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+          </svg>Podcasts</a>
+          <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-film" viewBox="0 0 16 16">
+            <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"/>
+          </svg>Videos</a>
+          <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="purple" class="bi bi-tags-fill" viewBox="0 0 16 16">
+            <path d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+            <path d="M1.293 7.793A1 1 0 0 1 1 7.086V2a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l.043-.043-7.457-7.457z"/>
+          </svg>Tags</a>
+          <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-patch-question-fill" viewBox="0 0 16 16">
+            <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745.336 0 .504-.24.554-.627z"/>
+          </svg>FAQ</a>
+          <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="brown" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+          </svg>Forem Shop</a>
+          <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+          </svg>Sponsors</a>
+          <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-rainbow" viewBox="0 0 16 16">
+            <path d="M8 4.5a7 7 0 0 0-7 7 .5.5 0 0 1-1 0 8 8 0 1 1 16 0 .5.5 0 0 1-1 0 7 7 0 0 0-7-7zm0 2a5 5 0 0 0-5 5 .5.5 0 0 1-1 0 6 6 0 1 1 12 0 .5.5 0 0 1-1 0 5 5 0 0 0-5-5zm0 2a3 3 0 0 0-3 3 .5.5 0 0 1-1 0 4 4 0 1 1 8 0 .5.5 0 0 1-1 0 3 3 0 0 0-3-3zm0 2a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 4 0 .5.5 0 0 1-1 0 1 1 0 0 0-1-1z"/>
+          </svg>About</a>
+          <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+            <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+            <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+          </svg>Contact</a>
+  
+          <div class="p-3">
+            <h5><b>Other</b></h5>
+          </div>
+          <a href="#" class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><img
+              src="https://www.transparentpng.com/thumb/thumbs-up/orange-cartoon-thumbs-up-png-free-aZaGDL.png"
+              alt="Code of Conduct" width="28" height="28">Code of Conduct</a>
+          <a href="#" class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><img
+              src="https://www.pinclipart.com/picdir/middle/496-4960292_nerd-transparent-svg-nerd-emoji-twitter-clipart.png"
+              alt="Privacy Policy" width="28" height="28">Privacy Policy</a>
+          <a href="#" class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none mb-3"><img
+              src="https://icons.iconarchive.com/icons/google/noto-emoji-people-clothing-objects/256/12123-eyes-icon.png"
+              alt="Terms Of Use" width="28" height="28">Terms of Use</a>
+  
+              <div class="socialmedia d-flex justify-content-evenly mb-3 gap-3 p-3">
+                <span><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></span>
+                <span><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></span>
+                <span><a href="#" class="github"><i class="fab fa-github"></i></a></span>
+                <span><a href="#" class="instagram"><i class="fab fa-instagram"></i></a></span>
+                <span><a href="#" class="twitch"><i class="fab fa-twitch"></i></a></span>
+              </div>
+             </div> 
+        </div>
       </div>
+
+      <div class="bignav divIzq size3 d-flex flex-column align-content-start align-items-start">
+
+        <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="pink" class="bi bi-house-heart" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.707L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.646a.5.5 0 0 0 .708-.707L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207l-5-5-5 5V13.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7.207Zm-5-.225C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.309 8 6.982Z"/>
+        </svg> Home</a>
+        <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="yellow" class="bi bi-inboxes" viewBox="0 0 16 16">
+          <path d="M4.98 1a.5.5 0 0 0-.39.188L1.54 5H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0A.5.5 0 0 1 10 5h4.46l-3.05-3.812A.5.5 0 0 0 11.02 1H4.98zm9.954 5H10.45a2.5 2.5 0 0 1-4.9 0H1.066l.32 2.562A.5.5 0 0 0 1.884 9h12.234a.5.5 0 0 0 .496-.438L14.933 6zM3.809.563A1.5 1.5 0 0 1 4.981 0h6.038a1.5 1.5 0 0 1 1.172.563l3.7 4.625a.5.5 0 0 1 .105.374l-.39 3.124A1.5 1.5 0 0 1 14.117 10H1.883A1.5 1.5 0 0 1 .394 8.686l-.39-3.124a.5.5 0 0 1 .106-.374L3.81.563zM.125 11.17A.5.5 0 0 1 .5 11H6a.5.5 0 0 1 .5.5 1.5 1.5 0 0 0 3 0 .5.5 0 0 1 .5-.5h5.5a.5.5 0 0 1 .496.562l-.39 3.124A1.5 1.5 0 0 1 14.117 16H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393zm.941.83.32 2.562a.5.5 0 0 0 .497.438h12.234a.5.5 0 0 0 .496-.438l.32-2.562H10.45a2.5 2.5 0 0 1-4.9 0H1.066z"/>
+        </svg> Reading List</a>
+        <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-card-list" viewBox="0 0 16 16">
+          <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+          <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+        </svg> Listings</a>
+        <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-camera-reels" viewBox="0 0 16 16">
+          <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM1 3a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/>
+          <path d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h7zm6 8.73V7.27l-3.5 1.555v4.35l3.5 1.556zM1 8v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z"/>
+          <path d="M9 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM7 3a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+        </svg>Podcasts</a>
+        <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-film" viewBox="0 0 16 16">
+          <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"/>
+        </svg>Videos</a>
+        <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="purple" class="bi bi-tags-fill" viewBox="0 0 16 16">
+          <path d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+          <path d="M1.293 7.793A1 1 0 0 1 1 7.086V2a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l.043-.043-7.457-7.457z"/>
+        </svg>Tags</a>
+        <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-patch-question-fill" viewBox="0 0 16 16">
+          <path d="M5.933.87a2.89 2.89 0 0 1 4.134 0l.622.638.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636zM7.002 11a1 1 0 1 0 2 0 1 1 0 0 0-2 0zm1.602-2.027c.04-.534.198-.815.846-1.26.674-.475 1.05-1.09 1.05-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745.336 0 .504-.24.554-.627z"/>
+        </svg>FAQ</a>
+        <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="brown" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+          <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+        </svg>Forem Shop</a>
+        <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+        </svg>Sponsors</a>
+        <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-rainbow" viewBox="0 0 16 16">
+          <path d="M8 4.5a7 7 0 0 0-7 7 .5.5 0 0 1-1 0 8 8 0 1 1 16 0 .5.5 0 0 1-1 0 7 7 0 0 0-7-7zm0 2a5 5 0 0 0-5 5 .5.5 0 0 1-1 0 6 6 0 1 1 12 0 .5.5 0 0 1-1 0 5 5 0 0 0-5-5zm0 2a3 3 0 0 0-3 3 .5.5 0 0 1-1 0 4 4 0 1 1 8 0 .5.5 0 0 1-1 0 3 3 0 0 0-3-3zm0 2a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 4 0 .5.5 0 0 1-1 0 1 1 0 0 0-1-1z"/>
+        </svg>About</a>
+        <a  class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+          <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+          <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+        </svg>Contact</a>
+
+        <div class="p-3">
+          <h5><b>Other</b></h5>
+        </div>
+        <a href="#" class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><img
+            src="https://www.transparentpng.com/thumb/thumbs-up/orange-cartoon-thumbs-up-png-free-aZaGDL.png"
+            alt="Code of Conduct" width="28" height="28">Code of Conduct</a>
+        <a href="#" class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none"><img
+            src="https://www.pinclipart.com/picdir/middle/496-4960292_nerd-transparent-svg-nerd-emoji-twitter-clipart.png"
+            alt="Privacy Policy" width="28" height="28">Privacy Policy</a>
+        <a href="#" class="link-secondary list-group-item-action w-75 p-3 me-2 text-decoration-none mb-3"><img
+            src="https://icons.iconarchive.com/icons/google/noto-emoji-people-clothing-objects/256/12123-eyes-icon.png"
+            alt="Terms Of Use" width="28" height="28">Terms of Use</a>
+
+            <div class="socialmedia d-flex justify-content-evenly mb-3 gap-3 p-3">
+              <span><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></span>
+              <span><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></span>
+              <span><a href="#" class="github"><i class="fab fa-github"></i></a></span>
+              <span><a href="#" class="instagram"><i class="fab fa-instagram"></i></a></span>
+              <span><a href="#" class="twitch"><i class="fab fa-twitch"></i></a></span>
+            </div>
+
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-body">
+                <img
+                  src="https://res.cloudinary.com/practicaldev/image/fetch/s--vf_P4FwD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://p32.f1.n0.cdn.getcloudapp.com/items/OAu6mnD1/20ada628-9434-4772-a8e0-7d861713d3c4.jpg"
+                  class="card-img-top" alt="...">
+                <h5 class="card-title fs-4 text-dark"><b>The Forem Shop is here!</b></h5>
+                <a href="#" class="text-decoration-none text-primary"><b>>>Shop Forem, DEV, and CodeNewbie
+                    merch</b></a>
+              </div>
+            </div>
+
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title fs-5 text-secondary">DEV runs on 100% open source code known as <a href="#"
+                    class="text-decoration-none">Forem</a>. Contribute to the codebase or host your own!</h5>
+                <p class="card-text">Some quick example text to build</p>
+              </div>
+            </div>
+
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-body">
+                <img
+                  src="https://res.cloudinary.com/practicaldev/image/fetch/s--0VA_opuX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r958p7649efealx01xe6.png"
+                  class="card-img-top" alt="...">
+                <h5 class="card-title fs-5 text-primary">Immerse yourself in the WebAssembly</br> ecosystem
+                  <img src="https://www.freeiconspng.com/thumbs/check-tick-icon/tick-icon-18.png" alt="" width="20"
+                    height="20">
+                </h5>
+              </div>
+            </div>
+
+        
+   
+
+      </div>
+
+      <div class="divcentro  container-fluid size">
+        <div class="navbar-nav d-flex flex-row gap-3">
+          <a onclick="filterPosts('All')" class="nav-link text-dark fw-bold active" aria-current="page" href="#">All</a>
+          <a onclick="filterPosts('lastWeek')" class="nav-link text-secondary" href="#">Week</a>
+          <a onclick="filterPosts('lastMonth')" class="nav-link text-secondary" href="#">Month</a>
+          <a onclick="filterPosts('lastYear')" class="nav-link text-secondary" href="#">Year</a>
+        </div>
+
+
+        <div id="posts"></div>
+      </div>
+
+    
+    <div class="dernav divDer size3 mt-2">
+      
+      <div class=" card text-dark bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <img
+            src="https://res.cloudinary.com/practicaldev/image/fetch/s--eMfunHqq--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_350/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mx858c3b2vpfb216t851.png"
+            class="card-img-top" alt="...">
+          <h5 class="card-title card-title fs-5 text-primary">Forem Android App is Here</h5>
+          <h6 class="text-primary">It's the best place to regularly use Dev on mobile</h6>
+        </div>
+      </div>
+      <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <img
+            src="https://res.cloudinary.com/practicaldev/image/fetch/s--kDJc7-zC--/c_limit,f_auto,fl_progressive,q_auto,w_500/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/27dovb400kn3e2bs0zh9.png"
+            class="card-img-top" alt="...">
+          <h5 class="card-title card-title fs-3"> <b>Deepgram x DEV Hackathon (24)</b> </h5>
+          <h6 class="text-primary"><a class="text-decoration-none" href="#">It's the best place to regularly use
+              Dev on mobile<a></h6>
+        </div>
+      </div>
+      <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <img
+            src="https://res.cloudinary.com/practicaldev/image/fetch/s--3wcuFtIH--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://forem.dev/remoteimages/uploads/articles/f7nihr3z8nacgyb8ptrn.png"
+            class="card-img-top" alt="...">
+          <h5 class="card-title"> <a class="text-decoration-none" href="#">FOREM ANDROID</a> </h5>
+        </div>
+
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action">
+            <p class="mb-1"> [Deepgram x DEV Hackathon Submission Post Placeholder Title]</p>
+            <small class="text-muted">collabs</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+            <p class="mb-1"> Generate video thumbnails with vanilla JS, ReactJS. Like YouTube has done
+              <small>{frontend completely}</small></p>
+            <small class="text-muted">education</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+            <p class="mb-1">Render-Atlanta 2022 | 50+Speakers | June 1 - 4 | Front-End Engineering & Web3</p>
+            <small class="text-muted">collabs</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+            <p class="mb-1"> NotDB: Innovative database engine for Node.js-fully serializable, atomic transactions
+              backed by cloud storage</p>
+            <small class="text-muted">products</small>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action">
+            <p class="mb-1">Render-Atlanta 2022 | 50+Speakers | June 1 - 4 | Front-End Engineering & Web3</p>
+            <small class="text-muted">collabs</small>
+          </a>
+        </div>
+
+        <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+          <div class="card-header fs-4 fw-bold"><b>#help</b></div>
+          <a href="#" class="list-group-item list-group-item-action">
+            <p class="mb-1">My first post on DEV</p>
+            <small class="text-muted">7 comments</small>
+            <a href="#" class="list-group-item list-group-item-action">
+              <p class="mb-1">Doubt: multiprocessing basic example</p>
+              <span class="badge rounded-pill bg-warning text-danger">New</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <p class="mb-1">Why don't DB companies or Devops, have more apps?</p>
+              <span class="badge rounded-pill bg-warning text-danger">New</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+              <p class="mb-1">How I can apply a network_security_config.xml on specific variants and not in
+                release one?</p>
+              <span class="badge rounded-pill bg-warning text-danger">New</span>
+            </a>
+        </div>
+
     </div>
 
+    </div>
 
-    <aside id="right" class="d-none d-md-inline">
-    </aside>
-
-    <footer id="footer">
-    </footer>
   </div>
 
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
   <script src="./js/index.js"></script>
   <script src="./js/search.js"></script>
   <script src="./js/filterDate.js"></script>
+
 </body>
+
 </html>

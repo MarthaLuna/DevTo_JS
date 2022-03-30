@@ -1,0 +1,53 @@
+
+    
+    @media only screen and (max-width: 540px) {
+        .bignav {
+            display: none !important;
+        }
+       
+    }
+
+    @media only screen and (max-width: 912px) {
+        .dernav {
+            display: none !important;
+        }
+     
+    }
+
+
+    @media only screen and (min-width: 540px) {
+        .smallnav {
+            display: none !important;
+        }
+        
+    }
+
+    .white
+    {
+        background-color: rgb(238,238,238);
+    }
+
+    .size
+    {
+        width: 100%;
+    }
+
+    .size2{
+        width: 50%;
+    }
+
+    .size3{
+        width: 25%;
+    }
+
+    .add{
+
+        position: fixed;
+        top:0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-bottom: 1px solid gray;
+        height: 45px;
+        z-index: 1;
+    }

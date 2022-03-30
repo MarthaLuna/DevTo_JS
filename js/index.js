@@ -49,8 +49,8 @@ const getPosts2 = async () => {
     if (post.contentText)
       postHTML += `<p class="card-text">${post.contentText.substring(0,50)}...</p>`
     postHTML += `<div class="d-flex justify-content-between">
-            <div><span><i class="bi bi-suit-heart"></i> ${post.counterReactions} Reactios</span>
-              <span><i class="bi bi-chat-right"></i> ${post.counterComents} Comments</span>
+            <div><span><i class="bi bi-suit-heart"></i> ${post.counterReactions} <span class="bignav">Reactios</span></span>
+              <span><i class="bi bi-chat-right"></i> ${post.counterComents} <span class="bignav">Comments</span></span>
             </div>
             <div>
               <a onclick="editPost('${post.firebaseID}')" class="btn btn-secondary btn-sm">Update</a>
