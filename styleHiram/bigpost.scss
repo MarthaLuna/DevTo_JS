@@ -135,6 +135,96 @@ body {
     }
 }
 
+//copia
+.horizontal {
+    @media (min-width: 600px) {
+        display: none;
+      }
+    @media (max-width: 600px) {
+        display: flex;
+      }
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    justify-content: space-evenly;
+    background-color: #f8f8f8;
+    height: 50px;
+    align-items: center;
+    color: #3d3d3d;
+    path {
+        fill: #3d3d3d;
+    }
+    .heart {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .heartDiv {
+            padding: 5px;
+            border-radius: 50%;
+            transition: all .5s ease;
+        }
+        .heartDiv:hover {
+            background-color: #f2e0e0;
+            path {
+                fill: #dc2626;
+                transition: all .5s ease;
+            }
+        }
+    }
+    .unicorn {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .unicornDiv {
+            padding: 5px;
+            border-radius: 50%;
+            transition: all .5s ease;
+        }
+        .unicornDiv:hover {
+            background-color: #ddebe7;
+            path {
+                fill: #059669;
+                transition: all .5s ease;
+            }
+        }       
+    }
+    .bookmark {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .bookmarkDiv {
+            padding: 5px;
+            border-radius: 50%;
+            transition: all .5s ease;
+        }
+        .bookmarkDiv:hover {
+            background-color: #e4e3f3;
+            path {
+                fill: #4f46e5;
+                transition: all .5s ease;
+            }
+        }     
+    }
+    .more {
+        padding: 5px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all .5s ease;
+        path {
+            fill: #919191;
+        }
+    }
+    .more:hover {
+        background-color: #f2f2f2;
+        path {
+            fill: #3d3d3d;
+            transition: all .5s ease;
+        }
+    }
+}
+//copia fin
+
+
 // Centro
 .col-8 {
     @media (max-width: 1000px) {
