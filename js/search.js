@@ -39,9 +39,14 @@ const search=async()=>
     const posts = postValues.filter((post)=>post.title.toLowerCase().includes(title));
     posts.forEach((post)=>{
 
-        let postHTML = `
-       <div ondblclick="openPost('${post.firebaseID}')" class="card">
-        <div class="d-flex">
+      let postHTML = `
+      <div ondblclick="openPost('${post.firebaseID}')" class="card mb-2">
+      `
+      if(post.image)
+     {postHTML += `<img class="card-img-top" src = "${post.image}">`} 
+       
+     postHTML +=  `<div class="d-flex">
+        
           <img src="${post.avatar}" width="32em"
             height="32em" class="rounded-pill ms-3 mt-3 gap-3" alt="posts_avatar">
           <div class="d-flex flex-column mt-3 ms-1"><span>${post.nameP}</span>
