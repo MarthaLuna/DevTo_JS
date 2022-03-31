@@ -21,7 +21,7 @@ const callPost = async()=>
         heroImg.src = post.image
         avatar.src = post.avatar;
         userName.textContent = post.nameP
-        date.textContent = post.dateTime
+        date.textContent = `${post.day}/${post.month}/${post.year}`
         title.textContent = post.title
         postContent.textContent = post.contentText
 
