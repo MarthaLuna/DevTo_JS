@@ -22,8 +22,6 @@ const posting = (e) =>
          });
          alert("POST SAVED SUCCESSFULLY")
          tags=[];
-        //cleanForm();
-        //goHome();
     }
     else
     {
@@ -153,7 +151,7 @@ const showAid = (e) =>
     }    
 }
 
-const cleanForm = (e) =>
+/*const cleanForm = (e) =>
 {
     postTitle.value='';
     postTextContent.value='';
@@ -163,4 +161,4 @@ const cleanForm = (e) =>
         tagsContainer.innerHTML='';
         tags=[];
     }
-}
+}*/
