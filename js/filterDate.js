@@ -96,6 +96,6 @@ const filterPosts=async(dateFilter)=>
             </div>
         </div>`
 
-        containerPosts.insertAdjacentHTML('beforeend', postHTML);
+        containerPosts.insertAdjacentHTML('afterbegin', postHTML);
     });  
 }

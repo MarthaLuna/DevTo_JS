@@ -74,6 +74,6 @@ const search=async()=>
         </div>
       </div>`
 
-      containerPosts.insertAdjacentHTML('beforeend',postHTML);
+      containerPosts.insertAdjacentHTML('afterbegin',postHTML);
     })
 }

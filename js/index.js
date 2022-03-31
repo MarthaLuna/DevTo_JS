@@ -63,7 +63,7 @@ const getPosts2 = async () => {
         </div>
       </div>`
 
-    containerPosts.insertAdjacentHTML('beforeend', postHTML);
+    containerPosts.insertAdjacentHTML('afterbegin', postHTML);
   });  
 }
 
