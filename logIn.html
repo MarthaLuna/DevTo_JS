@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/newPost.css">
+    <link href="https://res.cloudinary.com/practicaldev/image/fetch/s--t7tVouP9--/c_limit,f_png,fl_progressive,q_80,w_192/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/devlogo-pwa-512.png" rel="icon" sizes="192x192">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <title>New Post - DEV Community 👩‍💻👨‍💻</title>
+</head>
+<body style="background:rgb(245,245,245);">
+    
+    <nav class="navbar navbar-light bg-white">
+        <div class="container-fluid">
+            <form class="d-flex justify-content-between w-100">
+                <div class="d-flex">
+                    <a href="./index.html">
+                        <img class="me-2" width="50px" height="40px" src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" alt="DEV Community">
+                    </a>
+                    <div class="d-sm-flex align-items-center pe-1 ps-1  d-none"  style="border: 1px solid black; border-radius: 5px;">
+                        <input class="form-control p-1" type="search" placeholder="Search..." aria-label="Search" style="border: none;">
+                        <i class="bi bi-search"></i>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-search d-sm-none"></i>
+                    <button class="btn btn-outline-primary d-none d-sm-inline" type="submit" style="border: none;">Log In</button>
+                    <button class="btn btn-outline-primary" type="submit">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <div class="container bg-white mt-2 m-md-4 p-md-4">
+            <div class="d-flex flex-column">
+                <h1 class="text-center">
+                    Welcome to DEV Community
+                </h1>
+                <p class="text-center">
+                    <a href="">DEV Community</a> is a community of 851,532 amazing developers
+                </p>
+            </div>
+            <div>
+                <div class="d-flex flex-column">
+                    <button class="mb-2 p-2"><i class="me-1 bi bi-apple"></i>Continue with Apple</button>
+                    <button class="mb-2 p-2"><i class="me-1 bi bi-github"></i>Continue with Forem</button>
+                    <button class="mb-2 p-2"><i class="me-1 bi bi-emoji-laughing"></i>Continue with GitHub</button>
+                    <button class="mb-2 p-2"><i class="me-1 bi bi-twitter"></i>Continue with Twitter</button>
+                </div>
+                <div>
+                    <div class="text-center mt-2 mb-1">
+                        <span class="">
+                            Have a password? Continue with your email address
+                        </span>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                          <label  class="form-label">
+                              Email
+                          </label>
+                          <input type="text" id="disabledTextInput" class="form-control">
+                          <label class="form-label">
+                              Password
+                          </label>
+                          <input type="password" id="disabledTextInput" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck">
+                            <label class="form-check-label" for="disabledFieldsetCheck">
+                              Remember me
+                            </label>
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Continue</button>
+                        <p class="text-center m-4">
+                            <a href="">I forgot my password</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="">
+            <form onreset="cleanForm(event)" class="w-100 d-flex flex-column justify-content-center">
+                <div class="d-flex p-3 align-items-center justify-content-center">
+                    <div class="d-flex flex-column align-items-start">
+                        <div class="bg-white card me-md-3">
+                            <div class="p-4 justify-content-between">
+                                <input id="postImg" type="url" class="mb-3 rounded" placeholder="Add a cover image">
+                                <h1 class="mt-3 mb-3">
+                                    <input id="postTitle" onclick="showAid(event)" class="w-100" type="text" placeholder="New post title here..."  style="border:none">
+                                </h1>
+                                <div class="d-flex mt-3">
+                                    <div id="tagsContainer" class="d-flex">
+                                    </div>
+                                    <input id="tagCreator" onclick="showAid(event)" onchange="addTag(event)" type="text" class="form-control p-1" type="text" placeholder="Add up to 4 tags..."  style="border:none">
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="p-1 w-100" style="background:rgb(245,245,245);">
+                                    <ul id="textFormating" class="list group d-flex justify-content-start justify-content-sm-between p-0">
+                                        <li class="list-group-item p-0" style="border:none; background-color: transparent;">
+                                            <button type="button" class="btn btn-outline-primary" style="border:none">
+                                                <h2 class="p-0 m-0">
+                                                    <i class="bi bi-type-bold"></i>
+                                                </h2>
+                                            </button>
+                                        </li>
+                                        <li class="list-group-item p-0" style="border:none; background-color: transparent;">
+                                            <button type="button" class="btn btn-outline-primary" style="border:none">
+                                                <h2 class="p-0 m-0">
+                                                    <i class="bi bi-type-italic"></i>
+                                                </h2>
+                                            </button>
+                                        </li>
+                                        <li class="list-group-item p-0" style="border:none; background-color: transparent;">
+                                            <button type="button" class="btn btn-outline-primary" style="border:none">
+                                                <h2 class="p-0 m-0">
+                                                    <i class="bi bi-link-45deg"></i>
+                                                </h2>
+                                            </button>
+                                        </li>
+                                        <li class="list-group-item p-0" style="border:none; background-color: transparent;">
+                                            <button type="button" class="btn btn-outline-primary" style="border:none">
+                                                <h2 class="p-0 m-0">
+                                                    <i class="bi bi-list-ul"></i>
+                                                </h2>
+                                            </button>
+                                        </li>
+                                        <li class="list-group-item p-0" style="border:none; background-color: transparent;">
+                                            <button type="button" class="btn btn-outline-primary" style="border:none">
+                                                <h2 class="p-0 m-0">
+                                                    <i class="bi bi-list-ol"></i>
+                                                </h2>
+                                            </button>
+                                        </li>
+                                        <li class="list-group-item p-0" style="border:none; background-color: transparent;">
+                                            <button type="button" class="btn btn-outline-primary" style="border:none">
+                                                <h2 class="p-0 m-0">
+                                                    <i class="bi bi-type-h1"></i>
+                                                </h2>
+                                            </button>
+                                        </li>
+                                        <li class="list-group-item p-0" style="border:none; background-color: transparent;">
+                                            <button type="button" class="btn btn-outline-primary" style="border:none">
+                                                <h2 class="p-0 m-0">
+                                                    <i class="bi bi-quote"></i>
+                                                </h2>
+                                            </button>
+                                        </li>
+                                        <li class="list-group-item p-0" style="border:none; background-color: transparent;">
+                                            <button type="button" class="btn btn-outline-primary" style="border:none">
+                                                <h2 class="p-0 m-0">
+                                                    <i class="bi bi-code"></i>
+                                                </h2>
+                                            </button>
+                                        </li>
+                                        <li class="list-group-item p-0" style="border:none; background-color: transparent;">
+                                            <button type="button" class="btn btn-outline-primary" style="border:none">
+                                                <h2 class="p-0 m-0">
+                                                    <i class="bi bi-code-square"></i>
+                                                </h2>
+                                            </button>
+                                        </li>
+                                        <li class="list-group-item p-0" style="border:none; background-color: transparent;">
+                                            <button type="button" class="btn btn-outline-primary" style="border:none">
+                                                <h2 class="p-0 m-0">
+                                                    <i class="bi bi-card-image"></i>
+                                                </h2>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="p-4">
+                                    <div class="form-floating">
+                                        <textarea id="postTextContent" onclick="showAid(event)" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 110px; border:none"></textarea>
+                                        <label for="floatingTextarea2">Write your post content here...</label>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            
+                        </div>                      
+                        <div class="d-flex align-items-center justify-content-center mt-3">
+                            <div class="card d-flex flex-row" style="border: none; background-color: transparent;">
+                                <button onclick="posting()" type="button" class="btn btn-primary me-2">
+                                    Publish
+                                </button>
+                                <button type="button" class="btn btn-outline-primary me-2" style="border:none; color:black">
+                                    <span>Save</span>
+                                    <span class="d-none d-sm-inline">draft</span>
+                                </button>
+                                <button type="button" class="btn btn-outline-primary me-2" style="border:none; color:black">
+                                    <i class="bi bi-nut"></i>
+                                </button>
+                                <button type="reset" class="btn btn-outline-primary me-2" style="border:none; color:black">
+                                    <span>Revert</span>
+                                    <span class="d-none d-sm-inline">new changes</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="TitleAid" class="d-none d-md-inline w-25">
+                        <h5>
+                            Writing a Great Post Title
+                        </h5>
+                        <ul>
+                            <li>
+                                Think of your post title as a super short (but compelling!) description — like an overview of the actual post in one short sentence.
+                            </li>
+                            <li>
+                                Use keywords where appropriate to help ensure people can find your post by search.
+                            </li>
+                        </ul>
+                    </div>
+        
+                    <div id="TagsAid" class="d-none w-25">
+                        <h5>
+                            Tagging Guidelines
+                        </h5>
+                        <ul>
+                            <li>
+                                Tags help people find your post.
+                            </li>
+                            <li>
+                                Think of tags as the topics or categories that best describe your post.
+                            </li>
+                            <li>
+                                Add up to four comma-separated tags per post. Combine tags to reach the appropriate subcommunities.
+                            </li>
+                            <li>
+                                Use existing tags whenever possible.
+                            </li>
+                            <li>
+                                Some tags, such as “help” or “healthydebate”, have special posting guidelines.
+                            </li>
+                        </ul>
+                    </div>
+        
+                    <div id="ContentAid" class="d-none w-25">
+                        <h5>
+                            Editor Basics
+                        </h5>
+                        <ul>
+                            <li>
+                                Use <a href="" style="text-decoration: none;">Markdown</a> to write and format posts.
+                                <ul>
+                                    <li>
+                                        Commonly used syntax
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Embed rich content such as Tweets, YouTube videos, etc. Use the complete URL: <span class="rounded" style="background-color: lightgray;">{% embed https://... %}.</span> <a href="" style="text-decoration: none;">See a list of supported embeds.</a>
+                            </li>
+                            <li>
+                                In addition to images for the post's content, you can also drag and drop a cover image.
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+                  
+            </form>
+
+        </div> -->
+    </main>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- <script src="./js/newPost.js"></script> -->
+</body>
+</html>
