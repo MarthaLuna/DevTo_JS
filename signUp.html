@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <form class="d-flex justify-content-between w-100">
                 <div class="d-flex">
-                    <a href="./index.html">
+                    <a href="./indexOut.html">
                         <img class="me-2" width="50px" height="40px" src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" alt="DEV Community">
                     </a>
                     <div class="d-sm-flex align-items-center pe-1 ps-1 d-none"  style="border: 1px solid black; border-radius: 5px;">
@@ -46,48 +46,48 @@
             </div>
             <div>
                 <div>
-                    <form>
+                    <form onsubmit="signUp(event)">
                         <div class="mb-3">
 
                             <label class="form-label mt-3 mb-0">
                                 First name
                             </label>
-                            <input type="text" id="disabledTextInput" class="form-control">
+                            <input required name="firstname" type="text" class="form-control">
 
                             <label class="form-label mt-3 mb-0">
                                 Last name
                             </label>
-                            <input type="text" id="disabledTextInput" class="form-control">
+                            <input required name="lastname" type="text" class="form-control">
 
                             <label class="form-label mt-3 mb-0">
                                 Email
                             </label>
-                            <input type="text" id="disabledTextInput" class="form-control">
+                            <input required name="email" type="text" class="form-control">
 
                             <label class="form-label mt-3 mb-0">
                                 Password
                             </label>
-                            <input type="password" id="disabledTextInput" class="form-control">
+                            <input required name="password" type="password" class="form-control">
 
                             <label class="form-label mt-3 mb-0">
                                 Profile Picture
                             </label>
-                            <input type="url" id="disabledTextInput" class="form-control">
+                            <input name="image" type="url" class="form-control">
 
                             <label class="form-label mt-3 mb-0">
                                 Country
                             </label>
-                            <input type="text" id="disabledTextInput" class="form-control">
+                            <input name="country" type="text" class="form-control">
 
                             <label class="form-label mt-3 mb-0">
                                 Birthday
                             </label>
-                            <input type="date" id="disabledTextInput" class="form-control">
+                            <input name="birthday" type="date" class="form-control">
 
                             <label class="form-label mt-3 mb-0">
                                 Description
                             </label>
-                            <input type="texts" id="disabledTextInput" class="form-control">
+                            <input name="description" type="texts" class="form-control">
 
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Create Account</button>
@@ -99,6 +99,6 @@
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <!-- <script src="./js/newPost.js"></script> -->
+    <script src="./js/signUp.js"></script>
 </body>
 </html>
