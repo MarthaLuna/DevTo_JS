@@ -1,14 +1,17 @@
 const filterPosts=async(dateFilter)=>
 {
-    const url = `${urlDB}/posts.json`;
+    let url=`http://localhost:8080/api/v1/posts`;
     const respuesta = await fetch(url);
     const body = await respuesta.json();
-
-    let postValues=Object.keys(body).map((id)=>
+  
+  
+   
+    let postValues = Object.values(body)[1];
+    postValues.forEach((post)=>
     {
-        const post=body[id];
+        
         return{
-        firebaseID:id.toString(),
+        ID:post._id.toString(),
         postID:post.postID,
         datetime:post.datetime,
         day:post.day,
@@ -18,10 +21,10 @@ const filterPosts=async(dateFilter)=>
         counterComents:post.counterComents,
         image:post.image,
         title:post.title,
-        avatar:post.avatar,
+        avatar:post.user.image,
         tags:post.tags,
         contentText:post.contentText,
-        nameP:post.nameP,
+        nameP:post.user.firstname,
         }
     });
     containerPosts.innerHTML='';

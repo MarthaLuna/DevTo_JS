@@ -1,6 +1,6 @@
 window.queryParams=new URLSearchParams(window.location.search);
-const id = queryParams.get('id');
-
+const id = queryParams.get('ID');
+console.log("mar",id)
 const postImg = document.getElementById('postImg');
 const postTitle = document.getElementById('postTitle');
 const tagsContainer = document.getElementById('tagsContainer');
@@ -20,9 +20,10 @@ const callPost = async()=>
 {
     try 
     {
-        let url=`${urlDB2}posts/${id}.json`;
-        let respuesta = await fetch(url);
-        let post=await respuesta.json();
+        let url=`http://localhost:8080/api/v1/posts/${id}`;
+        const respuesta = await fetch(url);
+        const body = await respuesta.json();
+        const post = Object.values(body)[1];
         //console.log(post);
         postImg.value=post.image;
         postTitle.value=post.title;
@@ -41,9 +42,9 @@ const callPost = async()=>
     }
 }
 
-const updatePost = (fireBaseID, image, title, avatar, tags, contentText, funcion) => {
+const updatePost = (ID, image, title, tags, contentText, funcion) => {
 
-	const url = `${urlDB2}posts/${fireBaseID}.json`;
+	const url = `http://localhost:8080/api/v1/posts/${ID}`;
 
     let today = new Date();
     let time = new Date();
@@ -63,13 +64,12 @@ const updatePost = (fireBaseID, image, title, avatar, tags, contentText, funcion
     let updated=true;
     let counterReactions = 4;
     let counterComents = 4;
-    let nameP = "Ada Lovale"
-    avatar = "https://api.binary-coffee.dev/uploads/Ada_Lovelace_Chalon_portrait_4d642eaf6a.jpeg"
-    
-    const post = {fireBaseID,postID, datetime, day, month, year, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP, updated};
+   
+    const post = {postID, title, tags, counterReactions,  counterComents, datetime, image, contentText, day, month, year, };
 
 	fetch(url, {
-		method: 'PUT',
+		method: 'PATCH',
+        mode: 'cors',
         body:JSON.stringify(post),
         headers:
         {
@@ -86,7 +86,7 @@ const sendUpdate=()=>
     recoverTags();
     console.log(tags);
     console.log(id.toString());
-    updatePost(id, postImg.value, postTitle.value, postImg.value, tags, postTextContent.value, (body)=>
+    updatePost(id, postImg.value, postTitle.value, tags, postTextContent.value, (body)=>
     {
         console.log(body);
         alert("POST UPDATED SUCESSFULLY!")

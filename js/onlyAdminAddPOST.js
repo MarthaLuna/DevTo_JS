@@ -18,7 +18,7 @@ const createPost = (image, title, avatar, tags, contentText, funcion) =>
     const month=01;
     const year=2021;
 
-    let firebaseID='';
+    let ID='';
     let postID = `${time.getTime()}${time.getMilliseconds()}`;
     let updated=false;
     let counterReactions = 0;
@@ -26,7 +26,7 @@ const createPost = (image, title, avatar, tags, contentText, funcion) =>
     let nameP = "Ada Lovelace";
     avatar = "https://api.binary-coffee.dev/uploads/Ada_Lovelace_Chalon_portrait_4d642eaf6a.jpeg"
     
-    const post = {firebaseID, postID, datetime, day, month, year, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP, updated};
+    const post = {ID, postID, datetime, day, month, year, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP, updated};
 
     fetch(url,{
         method:'POST',
