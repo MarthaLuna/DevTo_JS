@@ -7,16 +7,19 @@ const search=async()=>
     document.getElementById("posts").innerHTML = "";
  
     const containerPosts=document.querySelector('#posts');
-    const url=`${urlDB}/posts.json`;
-    const respuesta=await fetch(url);
-    const body=await respuesta.json();
+    let url=`http://localhost:8080/api/v1/posts`;
+        const respuesta = await fetch(url);
+        const body = await respuesta.json();
+      
+      
+       
+   let  postValues = Object.values(body)[1];
 
-    const postValues=Object.keys(body).map((id) =>
+   postValues.forEach((post)=>
     {
-      const post=body[id];
-      console.log(id);
+      
       return{
-        firebaseID:id.toString(),
+        ID:post._id.toString(),
         postID:post.postID,
         datetime:post.datetime,
         day:post.day,
@@ -26,10 +29,10 @@ const search=async()=>
         counterComents:post.counterComents,
         image:post.image,
         title:post.title,
-        avatar:post.avatar,
+        avatar:post.user.image,
         tags:post.tags,
         contentText:post.contentText,
-        nameP:post.nameP,
+        nameP:post.user.name,
       }
     });
 

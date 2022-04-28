@@ -17,8 +17,32 @@ const signUp=(e)=>
     {   
         user[input.name]=input.value;
     });
+
+    
+    createUser(user, (body)=>{
+        console.log(body);
+     });
+     alert("USER SAVED SUCCESSFULLY")
+    
     console.log(user);
 
     //si se hizo el registro con éxito, nos manda a login.html
-    goToLogIn();
+    //goToLogIn();
+}
+
+
+const createUser = (user, funcion) =>
+{
+    const url=`http://localhost:8080/api/v1/users`;
+
+    fetch(url,{
+        method:'POST',
+        body:JSON.stringify(user),
+        headers:
+        {
+            'Content-Type':'application/json'
+        }
+    }).then((respuesta)=>respuesta.json())
+    .then((body)=>funcion(body))
+    .catch((error)=>console.log(error));
 }

@@ -1,19 +1,19 @@
-const urlDB = "https://devto-3e84b-default-rtdb.firebaseio.com/"
+
 const containerPosts = document.querySelector('#posts');
 
 const constructPOST = (post) =>{
-
+console.log("AQUI",post._id)
   let postHTML = `
-  <div ondblclick="openPost('${post.firebaseID}')" class="card mb-2">
+  <div ondblclick="openPost('${post._id}')" class="card mb-2">
   `
   if(post.image)
  {postHTML += `<img class="card-img-top" src = "${post.image}">`} 
    
  postHTML +=  `<div class="d-flex">
     
-      <img src="${post.avatar}" width="32em"
+      <img src="${post.user.image}" wIDth="32em"
         height="32em" class="rounded-pill ms-3 mt-3 gap-3" alt="posts_avatar">
-      <div class="d-flex flex-column mt-3 ms-1"><span>${post.nameP}</span>
+      <div class="d-flex flex-column mt-3 ms-1"><span>${post.user.firstname}</span>
         <small>${post.day}/${post.month}/${post.year}</small>
       </div>
     </div>
@@ -31,8 +31,8 @@ const constructPOST = (post) =>{
           <span><i class="bi bi-chat-right"></i> ${post.counterComents} Comments</span>
         </div>
         <div>
-        <a onclick="editPost('${post.firebaseID}')" class="btn btn-secondary btn-sm">Update</a>
-        <a onclick="deletePost('${post.firebaseID}')" class="btn btn-secondary btn-sm">Delete</a>
+        <a onclick="editPost('${post._id}')"  class="btn btn-secondary btn-sm">Update</a>
+        <a onclick="deletePost('${post._id}')" class="btn btn-secondary btn-sm">Delete</a>
         </div>
       </div>
     </div>
@@ -43,15 +43,22 @@ const constructPOST = (post) =>{
 }
 
 const getPosts2 = async () => {
-  const url = `${urlDB}/posts.json`;
+
+try{
+
+  const url = `http://localhost:8080/api/v1/posts`;
   const respuesta = await fetch(url);
   const body = await respuesta.json();
 
-  const postValues=Object.keys(body).map((id)=>
+
+ 
+  const payload = Object.values(body)[1];
+  payload.forEach((post)=>
   {
-    const post=body[id];
+    console.log(post)
+    console.log(post.user.image);
     return{
-      firebaseID:id.toString(),
+      ID:post._id,
       postID:post.postID,
       datetime:post.datetime,
       day:post.day,
@@ -59,38 +66,50 @@ const getPosts2 = async () => {
       year:post.year,
       counterReactions:post.counterReactions,
       counterComents:post.counterComents,
-      image:post.image,
+      image:post.image.toString(),
       title:post.title,
-      avatar:post.avatar,
+      avatar:post.user.image.toString(),
       tags:post.tags,
       contentText:post.contentText,
-      nameP:post.nameP,
+      nameP:post.user.firstname.toString(),
+      
     }
-  });
 
-  postValues.forEach((post)=> {
+  })
+  
+  
+
+  
+
+  payload.forEach((post)=> {
 
     containerPosts.insertAdjacentHTML('afterbegin', constructPOST(post));
   });  
+
+}catch(error){
+ console.log(error);
+}
 }
 
-document.editPost = (firebaseID) => 
+
+
+document.editPost = (ID) => 
 {
-  window.location.assign(`./editPost.html?id=${firebaseID}`);
+  window.location.assign(`./editPost.html?ID=${ID}`);
 }
 
-document.openPost = (firebaseID) => 
+document.openPost = (ID) => 
 {
-  window.location.assign(`./bigpost.html?id=${firebaseID}`);
+  window.location.assign(`./bigpost.html?ID=${ID}`);
 }
 
-const deletePost = (fireBaseID) => {
+const deletePost = (ID) => {
 
   const del = confirm("Lo quieres eliminar ?")
   if (del) {
-    document.getElementById("posts").innerHTML = "";
+    document.getElementByID("posts").innerHTML = "";
     
-    const url = `${urlDB}/posts/${fireBaseID}.json`;
+    const url = `http://localhost:8080/api/v1/posts/${ID}`;
     fetch(url, {
       method: 'DELETE'
     })

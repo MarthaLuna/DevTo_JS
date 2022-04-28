@@ -31,7 +31,7 @@ const posting = (e) =>
 
 const createPost = (image, title, avatar, tags, contentText, funcion) =>
 {
-    const url=`${urlDB}/posts.json`;
+    const url=`http://localhost:8080/api/v1/posts/`;
 
     let today = new Date();
     let time = new Date();
@@ -47,15 +47,18 @@ const createPost = (image, title, avatar, tags, contentText, funcion) =>
     const month=mm;
     const year=yyyy;
 
-    let firebaseID='';
+    let ID='';
     let postID = `${time.getTime()}${time.getMilliseconds()}`;
     let updated=false;
     let counterReactions = 0;
     let counterComents = 0;
     let nameP = "Ada Lovelace";
+
+    //"user": {"_id": "626733df2f550c017fc2349d"}
+
     avatar = "https://api.binary-coffee.dev/uploads/Ada_Lovelace_Chalon_portrait_4d642eaf6a.jpeg"
     
-    const post = {firebaseID, postID, datetime, day, month, year, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP, updated};
+    const post = {ID, postID, datetime, day, month, year, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP, updated};
 
     fetch(url,{
         method:'POST',

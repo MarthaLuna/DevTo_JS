@@ -14,13 +14,17 @@ const callPost = async()=>
 {
     try 
     {
-        let url=`${urlDB2}posts/${id}.json`;
-        let respuesta = await fetch(url);
-        let post=await respuesta.json();
+        let url=`http://localhost:8080/api/v1/posts/${id}`;
+        const respuesta = await fetch(url);
+        const body = await respuesta.json();
+      
+      
+       
+        const post = Object.values(body)[1];
         //console.log(post);
         heroImg.src = post.image
-        avatar.src = post.avatar;
-        userName.textContent = post.nameP
+        avatar.src = post.user.image;
+        userName.textContent = post.user.firstname
         date.textContent = `${post.day}/${post.month}/${post.year}`
         title.textContent = post.title
         postContent.textContent = post.contentText
@@ -33,7 +37,7 @@ const callPost = async()=>
 
     } catch (error)
     {
-            
+            console.log(error);
     }
 }
 
