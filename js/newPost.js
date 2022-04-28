@@ -17,7 +17,7 @@ const posting = (e) =>
     if(postTitle.value&&postTextContent.value)
     {
         recoverTags();
-        createPost(postImg.value,postTitle.value,postImg.value,tags,postTextContent.value, (body)=>{
+        createPost(postImg.value,postTitle.value,tags,postTextContent.value, (body)=>{
             console.log(body);
          });
          alert("POST SAVED SUCCESSFULLY")
@@ -29,7 +29,7 @@ const posting = (e) =>
     }
 }
 
-const createPost = (image, title, avatar, tags, contentText, funcion) =>
+const createPost = (image, title,  tags, contentText, funcion) =>
 {
     const url=`http://localhost:8080/api/v1/posts/`;
 
@@ -47,25 +47,22 @@ const createPost = (image, title, avatar, tags, contentText, funcion) =>
     const month=mm;
     const year=yyyy;
 
-    let ID='';
+    
     let postID = `${time.getTime()}${time.getMilliseconds()}`;
-    let updated=false;
+   
     let counterReactions = 0;
     let counterComents = 0;
-    let nameP = "Ada Lovelace";
-
-    //"user": {"_id": "626733df2f550c017fc2349d"}
-
-    avatar = "https://api.binary-coffee.dev/uploads/Ada_Lovelace_Chalon_portrait_4d642eaf6a.jpeg"
     
-    const post = {ID, postID, datetime, day, month, year, counterReactions, counterComents, image, title, avatar, tags, contentText, nameP, updated};
-
+    
+    const post = {postID, title, tags, counterReactions,  counterComents, datetime, image, contentText, day, month, year};
+    const token = localStorage.getItem("userToken");
     fetch(url,{
         method:'POST',
         body:JSON.stringify(post),
         headers:
         {
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'token':`${token}`
         }
     }).then((respuesta)=>respuesta.json())
     .then((body)=>funcion(body))

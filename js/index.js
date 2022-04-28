@@ -55,8 +55,7 @@ try{
   const payload = Object.values(body)[1];
   payload.forEach((post)=>
   {
-    console.log(post)
-    console.log(post.user.image);
+    
     return{
       ID:post._id,
       postID:post.postID,
@@ -105,13 +104,19 @@ document.openPost = (ID) =>
 
 const deletePost = (ID) => {
 
+  const token = localStorage.getItem("userToken");
   const del = confirm("Lo quieres eliminar ?")
   if (del) {
-    document.getElementByID("posts").innerHTML = "";
+    document.getElementById("posts").innerHTML = "";
     
     const url = `http://localhost:8080/api/v1/posts/${ID}`;
     fetch(url, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers:
+      {
+          'Content-Type':'application/json',
+          'token':`${token}`
+      }
     })
       .then(respuesta => respuesta.json())
       .then((body) => {

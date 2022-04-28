@@ -66,14 +66,17 @@ const updatePost = (ID, image, title, tags, contentText, funcion) => {
     let counterComents = 4;
    
     const post = {postID, title, tags, counterReactions,  counterComents, datetime, image, contentText, day, month, year, };
-
+    const token = localStorage.getItem("userToken");
+    
+    console.log("tokenUpdate",token)
 	fetch(url, {
 		method: 'PATCH',
         mode: 'cors',
         body:JSON.stringify(post),
         headers:
         {
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'token':`${token}`
         }
 	})
 	 .then(respuesta => respuesta.json())
